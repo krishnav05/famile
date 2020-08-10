@@ -17,3 +17,18 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+
+Route::group(['prefix' => 'v1'], function () {
+    Route::post('/login', '\App\Http\Controllers\Api\UsersController@login');
+    Route::post('/register', 'UsersController@register');
+    Route::get('/logout', 'UsersController@logout')->middleware('auth:api');
+    Route::post('image',function(){
+    	$image = $_POST['image'];
+  $name = $_POST['name'];
+  $realImage = base64_decode($image);
+  
+  file_put_contents($name,$realImage);
+  echo "OK";
+    });
+});
