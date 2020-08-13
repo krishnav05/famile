@@ -31,4 +31,17 @@ Route::group(['prefix' => 'v1'], function () {
   file_put_contents($name,$realImage);
   echo "OK";
     });
+    Route::post('profile',function(){
+return response()
+            ->json(
+              [
+                'state' => [
+                    ['id'=>'1','name'=>'krishna'],
+                    ['id'=>'2','name'=>'ravi'],
+                    ['id'=>'3','name'=>'aman'],
+                    ['id'=>'4','name'=>'krishna'],
+                ]
+              ]
+            );
+    });
 });
