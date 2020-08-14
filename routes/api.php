@@ -44,4 +44,21 @@ return response()
               ]
             );
     });
+    Route::post('profiledetail',function(){
+return response()
+            ->json(
+              [
+                'age' => '35',
+                'blood' => 'O+',
+                'height' => '5.8',
+                'weight' => '75',
+                'occupation' => 'Desk/IT',
+                'email' => 'sanket@semiqolon',
+                'mobile' => '9667555094',
+                'state' => 'Uttar Pradesh',
+                'city' => 'Noida',
+                'address' => '7th Floor A-14, Eco Tower\nNear Amity University,Sector 125,\nNoida - 201301, Uttar Pradesh', 
+              ]
+            );
+    });
 });
