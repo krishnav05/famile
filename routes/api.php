@@ -37,9 +37,9 @@ return response()
               [
                 'state' => [
                     ['id'=>'1','name'=>'krishna'],
-                    ['id'=>'2','name'=>'ravi'],
-                    ['id'=>'3','name'=>'aman'],
-                    ['id'=>'4','name'=>'krishna'],
+                    ['id'=>'2','name'=>'Sanket'],
+                    ['id'=>'3','name'=>'Richa'],
+                    ['id'=>'4','name'=>'Akshaj'],
                 ]
               ]
             );
