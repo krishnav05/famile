@@ -65,4 +65,8 @@ return response()
     Route::post('sendotp',function(){
     	return response()->json(['status'=>'success']);
     });
+
+    Route::post('verifyotp',function(){
+    	return response()->json(['status'=>'success']);
+    });
 });
