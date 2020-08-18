@@ -27,8 +27,9 @@ Route::group(['prefix' => 'v1'], function () {
     	$image = $_POST['image'];
   $name = $_POST['name'];
   $realImage = base64_decode($image);
+  $id = $_POST['profileId'];
   
-  file_put_contents('/prescriptions/'.$_POST['profileId'].'/'.$name,$realImage);
+  file_put_contents('prescriptions/'.$id.'/'.$name,$realImage);
   echo "OK";
     });
     Route::post('profile',function(){
