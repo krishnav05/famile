@@ -61,4 +61,8 @@ return response()
               ]
             );
     });
+
+    Route::post('sendotp',function(){
+    	return response()->json(['status'=>'success']);
+    });
 });
