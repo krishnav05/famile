@@ -80,7 +80,7 @@ return response()
         $new->blood_group = $_POST['blood'];
         $new->height = $_POST['height'];
         $new->weight = $_POST['weight'];
-        $new->occupation = $_POST]['occupation'];
+        $new->occupation = $_POST['occupation'];
         $new->save();
 
         return response()->json(['status'=>'success']);
