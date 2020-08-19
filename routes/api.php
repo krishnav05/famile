@@ -77,7 +77,7 @@ return response()
         $new->user_id = $_POST['profileid'];
         $new->name = $_POST['firstname'].' '.$_POST['lastname'];
         $new->age = $_POST['age'];
-        $new->blood = $_POST['blood'];
+        $new->blood_group = $_POST['blood'];
         $new->height = $_POST['height'];
         $new->weight = $_POST['weight'];
         $new->occupation = $_POST]['occupation'];
