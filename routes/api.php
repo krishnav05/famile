@@ -88,6 +88,6 @@ return response()
 
     Route::post('getmembers',function(){
     	$new = Profile::where('user_id',$_POST['profileid'])->get();
-    	return response()->json_encode($new);
+    	return response()->json($new);
     });
 });
