@@ -85,4 +85,9 @@ return response()
 
         return response()->json(['status'=>'success']);
     });
+
+    Route::post('getmembers',function(){
+    	$new = Profile::where('user_id',$_POST['profileid'])->get();
+    	return response()->json_encode($new);
+    });
 });
