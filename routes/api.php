@@ -2,6 +2,7 @@
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Profile;
 
 /*
 |--------------------------------------------------------------------------
@@ -69,5 +70,19 @@ return response()
 
     Route::post('verifyotp',function(){
     	return response()->json(['status'=>'success']);
+    });
+
+    Route::post('addprofile',function(){
+        $new = new Profile;
+        $new->user_id = $_POST['profileid'];
+        $new->name = $_POST['firstname'].' '.$_POST['lastname'];
+        $new->age = $_POST['age'];
+        $new->blood = $_POST['blood'];
+        $new->height = $_POST['height'];
+        $new->weight = $_POST['weight'];
+        $new->occupation = $_POST]['occupation'];
+        $new->save();
+
+        return response()->json(['status'=>'success']);
     });
 });
