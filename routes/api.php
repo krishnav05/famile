@@ -31,7 +31,7 @@ Route::group(['prefix' => 'v1'], function () {
   $realImage = base64_decode($image);
   $id = $_POST['profileId'];
   
-  file_put_contents('prescriptions/'.$id.'/'.$name,$realImage);
+  file_put_contents('prescriptions/'.$id.'/'.$name.'.jpg',$realImage);
   // echo "OK";
   return response()
             ->json(['status'=>'success']);
