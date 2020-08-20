@@ -97,6 +97,11 @@ File::makeDirectory($path, $mode = 0777, true, true);
     Route::post('gettimelineinfo',function(){
     	$new = null;
     	$new = GroupDocument::where('user_id',$_POST['profileid'])->get();
-    	return response()->json($new);
+    	if($new == null)
+    	{
+    		return response()->json(['status'=>'null']);
+    	}
+    	else
+    		return response()->json($new);
     });
 });
