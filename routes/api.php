@@ -26,8 +26,8 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('/logout', 'UsersController@logout')->middleware('auth:api');
     Route::post('image',function(){
     	$image = $_POST['image'];
-  // $name = $_POST['name'];
-    	$name = $_POST['userfilename'];
+  $name = $_POST['name'];
+    	// $name = $_POST['userfilename'];
   $realImage = base64_decode($image);
   $id = $_POST['profileId'];
   
@@ -65,6 +65,9 @@ return response()
         $new->weight = $_POST['weight'];
         $new->occupation = $_POST['occupation'];
         $new->save();
+
+        $path = public_path().'/prescriptions/' . $new->id;
+File::makeDirectory($path, $mode = 0777, true, true);
 
         return response()->json(['status'=>'success']);
     });
