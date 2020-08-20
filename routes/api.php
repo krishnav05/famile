@@ -32,7 +32,9 @@ Route::group(['prefix' => 'v1'], function () {
   $id = $_POST['profileId'];
   
   file_put_contents('prescriptions/'.$id.'/'.$name,$realImage);
-  echo "OK";
+  // echo "OK";
+  return response()
+            ->json(['status'=>'success']);
     });
     Route::post('profile',function(){
     	$new = Profile::where('user_id',$_POST['profileid'])->get();
