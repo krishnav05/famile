@@ -26,7 +26,8 @@ Route::group(['prefix' => 'v1'], function () {
     Route::get('/logout', 'UsersController@logout')->middleware('auth:api');
     Route::post('image',function(){
     	$image = $_POST['image'];
-  $name = $_POST['name'];
+  // $name = $_POST['name'];
+    	$name = $_POST['userfilename'];
   $realImage = base64_decode($image);
   $id = $_POST['profileId'];
   
