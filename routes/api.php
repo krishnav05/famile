@@ -3,6 +3,8 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Profile;
+use App\GroupDocument;
+use App\Documents;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,12 +26,26 @@ Route::group(['prefix' => 'v1'], function () {
     Route::post('/login', '\App\Http\Controllers\Api\UsersController@login');
     Route::post('/register', 'UsersController@register');
     Route::get('/logout', 'UsersController@logout')->middleware('auth:api');
+
+
     Route::post('image',function(){
     	$image = $_POST['image'];
   $name = $_POST['name'];
     	// $name = $_POST['userfilename'];
   $realImage = base64_decode($image);
   $id = $_POST['profileId'];
+
+  $newgroup = new GroupDocument;
+  $newgroup->profile_id = $_POST['profileId'];
+  $newgroup->total_docs = '1';
+  $newgroup->save();
+
+  $newdocument = new Documents;
+  $newdocument->profile_id = $_POST['profileId'];
+  $newdocument->document = $_POST['name'];
+  $newdocument->document_group = $newgroup->id;
+  $newdocument->save();
+
   
   file_put_contents('prescriptions/'.$id.'/'.$name,$realImage);
   // echo "OK";
