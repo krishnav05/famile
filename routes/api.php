@@ -93,4 +93,9 @@ File::makeDirectory($path, $mode = 0777, true, true);
     	$new = Profile::where('user_id',$_POST['profileid'])->get();
     	return response()->json($new);
     });
+
+    Route::post('gettimelineinfo',function(){
+    	$new = GroupDocument::where('user_id',$_POST['profileid'])->get();
+    	return response()->json($new);
+    });
 });
