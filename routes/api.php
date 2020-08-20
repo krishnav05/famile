@@ -101,6 +101,6 @@ File::makeDirectory($path, $mode = 0777, true, true);
     		return response()->json($new);
     	}
     	else	
-    		return response()->json(['status'=>'null']);
+    		return response()->json(['null']);
     });
 });
