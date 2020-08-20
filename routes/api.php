@@ -38,6 +38,7 @@ Route::group(['prefix' => 'v1'], function () {
   $newgroup = new GroupDocument;
   $newgroup->profile_id = $_POST['profileId'];
   $newgroup->total_docs = '1';
+  $newgroup->user_id = '1';
   $newgroup->save();
 
   $newdocument = new Documents;
