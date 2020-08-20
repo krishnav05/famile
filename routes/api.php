@@ -34,17 +34,9 @@ Route::group(['prefix' => 'v1'], function () {
   echo "OK";
     });
     Route::post('profile',function(){
+    	$new = Profile::where('user_id',$_POST['profileid'])->get();
 return response()
-            ->json(
-              [
-                'state' => [
-                    ['id'=>'1','name'=>'krishna','image'=>'https://cdn.iconscout.com/icon/free/png-512/avatar-370-456322.png'],
-                    ['id'=>'2','name'=>'Sanket','image'=>'https://www.clipartmax.com/png/middle/248-2487966_matthew-man-avatar-icon-png.png'],
-                    ['id'=>'3','name'=>'Richa','image'=>'https://f1.pngfuel.com/png/726/597/190/graphic-design-icon-customer-service-avatar-icon-design-call-centre-yellow-smile-forehead-png-clip-art.png'],
-                    ['id'=>'4','name'=>'Akshaj','image'=>'https://cdn1.iconfinder.com/data/icons/avatars-1-5/136/84-512.png'],
-                ]
-              ]
-            );
+            ->json($new);
     });
     Route::post('profiledetail',function(){
 return response()
