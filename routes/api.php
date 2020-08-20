@@ -98,9 +98,9 @@ File::makeDirectory($path, $mode = 0777, true, true);
     	$new = GroupDocument::where('user_id',$_POST['profileid'])->get();
     	if($new->first())
     	{
-    		return response()->json(['status'=>'null']);
-    	}
-    	else
     		return response()->json($new);
+    	}
+    	else	
+    		return response()->json(['status'=>'null']);
     });
 });
