@@ -53,6 +53,38 @@ Route::group(['prefix' => 'v1'], function () {
   return response()
             ->json(['status'=>'success']);
     });
+
+    Route::post('multiupload',function(){
+
+    	$id = $_POST['id'];
+    	$img = ['jpg', 'jpeg', 'png', 'bmp'];
+    	$doc = ['zip', 'rar', 'pdf', 'doc', 'docx', 'xls','xlsx','ppt','pptx'];
+    	$whitelistExt = array_merge($img, $doc);
+
+    	$newgroup = new GroupDocument;
+    	$newgroup->profile_id = $id;
+    	$newgroup->total_docs = '1';
+    	$newgroup->user_id = '1';
+    	$newgroup->save();
+
+    	foreach ($_POST['attachment'] as $key => $value)
+    	{	
+    		$fn = $value->fileName;
+    		$ext = pathinfo($fn, PATHINFO_EXTENSION);
+    		$f = base64_decode($value->encoded);
+    		file_put_contents('prescriptions/'.$id.'/'.$fn, $f);
+
+    		$newdocument = new Documents;
+	    	$newdocument->profile_id = $id;
+	    	$newdocument->document = $fn;
+	    	$newdocument->document_group = $newgroup->id;
+	    	$newdocument->save();
+
+    	}
+    	return response()
+    	->json(['status'=>'success']);
+    });
+
     Route::post('profile',function(){
     	$new = Profile::where('user_id',$_POST['profileid'])->get();
 return response()
