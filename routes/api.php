@@ -97,7 +97,8 @@ File::makeDirectory($path, $mode = 0777, true, true);
     		$image = $_POST['image'];
     		$realImage = base64_decode($image);
     		$name = 'avatar';
-    		file_put_contents('prescriptions/'.$_POST['editid'].'/'.$name,$realImage);
+    		$id = $_POST['editid'];
+    		file_put_contents('prescriptions/'.$id.'/'.$name,$realImage);
     		Profile::where('id',$_POST['editid'])->update(['image'=>'avatar']);
     	}
     	else{
