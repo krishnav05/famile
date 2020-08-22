@@ -56,7 +56,7 @@ Route::group(['prefix' => 'v1'], function () {
 
     Route::post('multiupload',function(){
 
-    	$id = $_POST['id'];
+    	$id = 1;
     	$img = ['jpg', 'jpeg', 'png', 'bmp'];
     	$doc = ['zip', 'rar', 'pdf', 'doc', 'docx', 'xls','xlsx','ppt','pptx'];
     	$whitelistExt = array_merge($img, $doc);
@@ -67,7 +67,7 @@ Route::group(['prefix' => 'v1'], function () {
     	$newgroup->user_id = '1';
     	$newgroup->save();
 
-    	$temp = $_POST['attachment'];
+    	$temp = json_decode($_POST['attachment']);
     	$file = 0;
     	foreach ($temp as $key => $value)
     	{	$file++;
