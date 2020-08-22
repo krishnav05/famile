@@ -56,7 +56,7 @@ Route::group(['prefix' => 'v1'], function () {
 
     Route::post('multiupload',function(){
 
-    	$id = 1;
+    	$id = json_decode($_POST['id']);
     	$img = ['jpg', 'jpeg', 'png', 'bmp'];
     	$doc = ['zip', 'rar', 'pdf', 'doc', 'docx', 'xls','xlsx','ppt','pptx'];
     	$whitelistExt = array_merge($img, $doc);
