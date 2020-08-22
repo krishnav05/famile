@@ -66,7 +66,7 @@ Route::group(['prefix' => 'v1'], function () {
     	$newgroup->total_docs = '1';
     	$newgroup->user_id = '1';
     	$newgroup->save();
-
+    	$futureupdate = $newgroup->id;
     	$temp = json_decode($_POST['attachment']);
     	$file = 0;
     	foreach ($temp as $key => $value)
@@ -83,9 +83,9 @@ Route::group(['prefix' => 'v1'], function () {
 	    	$newdocument->save();
 
     	}
-    	$newgroup->update(['total_docs'=>$file]);
+    	GroupDocument::where('id',$futureupdate)->update(['total_docs'=>$file]);
     	return response()
-    	->json(['status'=>'success']);
+    	->json(['status'=>'OK']);
     });
 
     Route::post('profile',function(){
