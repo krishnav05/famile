@@ -67,6 +67,8 @@ Route::group(['prefix' => 'v1'], function () {
     	$newgroup->user_id = '1';
     	$newgroup->save();
 
+    	$temp = $_POST['attachment'];
+
     	foreach ($_POST['attachment'] as $key => $value)
     	{	
     		$fn = $value->fileName;
