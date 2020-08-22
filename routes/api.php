@@ -115,11 +115,7 @@ File::makeDirectory($path, $mode = 0777, true, true);
     });
 
     Route::post('gettimelineinfo',function(){
-    	$new = GroupDocument::where('user_id',$_POST['profileid'])->get();
-    	foreach ($new as $key) {
-    		$key = $key->created_at->format('d m Y');
-    		# code...
-    	}
+    	$new = GroupDocument::where('user_id',$_POST['profileid'])->orderBy('id', 'DESC')->get();
     	// if($new->first())
     	// {
     	// 	return response()->json($new);
