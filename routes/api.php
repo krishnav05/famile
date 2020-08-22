@@ -69,7 +69,7 @@ Route::group(['prefix' => 'v1'], function () {
 
     	$temp = $_POST['attachment'];
     	$file = 0;
-    	foreach ($_POST['attachment'] as $key => $value)
+    	foreach ($temp as $key => $value)
     	{	$file++;
     		$fn = $value->fileName;
     		$ext = pathinfo($fn, PATHINFO_EXTENSION);
