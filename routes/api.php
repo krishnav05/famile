@@ -94,7 +94,7 @@ File::makeDirectory($path, $mode = 0777, true, true);
     	Profile::where('id',$_POST['editid'])->update(['name'=>$_POST['name'],'age'=>$_POST['age'],'blood_group'=>$_POST['blood'],'height'=>$_POST['height'],'weight'=>$_POST['weight'],'occupation'=>$_POST['occupation'],'email'=>$_POST['email'],'phone'=>$_POST['mobile'],'city'=>$_POST['city'],'state'=>$_POST['state'],'address'=>$_POST['address']]);
 
     	if($_POST['photo'] !== ''){
-    		$image = $_POST['image'];
+    		$image = $_POST['photo'];
     		$realImage = base64_decode($image);
     		$name = 'avatar';
     		$id = $_POST['editid'];
