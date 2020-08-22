@@ -89,6 +89,25 @@ File::makeDirectory($path, $mode = 0777, true, true);
         return response()->json(['status'=>'success']);
     });
 
+    Route::post('editprofile',function(){
+
+    	Profile::where('id',$_POST['editid'])->update(['name'=>$_POST['name'],'age'=>$_POST['age'],'blood_group'=>$_POST['blood'],'height'=>$_POST['height'],'weight'=>$_POST['weight'],'occupation'=>$_POST['occupation'],'email'=>$_POST['email'],'mobile'=>$_POST['mobile'],'city'=>$_POST['city'],'state'=>$_POST['state'],'address'=>$_POST['address']]);
+
+    	if($_POST['photo'] !== null){
+    		$image = $_POST['image'];
+    		$realImage = base64_decode($image);
+    		$name = 'avatar';
+    		file_put_contents('prescriptions/'.$_POST['editid'].'/'.$name,$realImage);
+    		Profile::where('id',$_POST['editid'])->update(['image'=>'avatar']);
+    	}
+    	else{
+    		Profile::where('id',$_POST['editid'])->update(['image'=>'default']);
+    	}
+
+
+    	return response()->json(['status'=>'success']);
+    });
+
     Route::post('getmembers',function(){
     	$new = Profile::where('user_id',$_POST['profileid'])->get();
     	return response()->json($new);
@@ -96,11 +115,11 @@ File::makeDirectory($path, $mode = 0777, true, true);
 
     Route::post('gettimelineinfo',function(){
     	$new = GroupDocument::where('user_id',$_POST['profileid'])->get();
-    	if($new->first())
-    	{
+    	// if($new->first())
+    	// {
+    	// 	return response()->json($new);
+    	// }
+    	// else	
     		return response()->json($new);
-    	}
-    	else	
-    		return response()->json(['null']);
     });
 });
