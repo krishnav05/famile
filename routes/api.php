@@ -116,11 +116,13 @@ File::makeDirectory($path, $mode = 0777, true, true);
 
     Route::post('gettimelineinfo',function(){
     	$new = GroupDocument::where('user_id',$_POST['profileid'])->orderBy('id', 'DESC')->get();
-    	// if($new->first())
-    	// {
-    	// 	return response()->json($new);
-    	// }
-    	// else	
+        foreach ($new as $key) {
+            $newtime = strtotime($key->created_at);
+            $key->date = date('d M Y',$newtime);
+            $created_at = explode(' ',$key->created_at);
+            $key->time = $created_at[1];
+
+        }
     		return response()->json($new);
     });
 });
