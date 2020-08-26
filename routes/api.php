@@ -152,6 +152,7 @@ File::makeDirectory($path, $mode = 0777, true, true);
     Route::post('gettimelineinfo',function(){
     	$new = GroupDocument::where('user_id',$_POST['profileid'])->orderBy('id', 'DESC')->get();
         $profile = Profile::where('user_id',$_POST['profileid'])->get();
+        $documents = Documents::where('profile_id',$_POST['profileid'])->get();
         foreach ($new as $key) {
             foreach($profile as $pro){
                 if($pro->id == $key->profile_id){
@@ -162,7 +163,16 @@ File::makeDirectory($path, $mode = 0777, true, true);
                     $key->username = $pro->name;
                 }
             }
-            
+            $image_links = array();
+            foreach ($documents as $doc) {
+                # code...
+                if($doc->document_group == $key->id)
+                {   $str = $doc->document;
+                      
+                    array_push($image_links, $str);
+                }
+            }
+            $key->image_links = $image_links;
 
         }
     		return response()->json($new);
