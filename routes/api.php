@@ -152,7 +152,7 @@ File::makeDirectory($path, $mode = 0777, true, true);
     Route::post('gettimelineinfo',function(){
     	$new = GroupDocument::where('user_id',$_POST['profileid'])->orderBy('id', 'DESC')->get();
         $profile = Profile::where('user_id',$_POST['profileid'])->get();
-        $documents = Documents::where('profile_id',$_POST['profileid'])->get();
+        $documents = Documents::where('user_id',$_POST['profileid'])->get();
         foreach ($new as $key) {
             foreach($profile as $pro){
                 if($pro->id == $key->profile_id){
