@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Profile;
 use App\GroupDocument;
 use App\Documents;
-
+use App\User;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -176,5 +176,11 @@ File::makeDirectory($path, $mode = 0777, true, true);
 
         }
     		return response()->json($new);
+    });
+
+    Route::post('setlocation',function(){
+        User::where('id',$_POST['profileid'])->update(['location'=>$_POST['location']]);
+
+        return response()->json(['status'=>'success']);
     });
 });
