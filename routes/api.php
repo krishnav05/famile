@@ -164,14 +164,27 @@ File::makeDirectory($path, $mode = 0777, true, true);
                 }
             }
             $image_links = array();
+            $count =0;
             foreach ($documents as $doc) {
                 # code...
                 if($doc->document_group == $key->id)
                 {   $str = $doc->document;
                       $key->first_image = $doc->document;
+                      $count++;
                     array_push($image_links, $str);
                 }
             }
+            $count = $count - 1;
+            if($count == 0)
+            {
+                $key->count = ' ';
+            }
+            else{
+                $count = (string)$count;
+            $countname = ' + '.$count;
+            $key->count = $countname;
+            }
+            
             $key->image_links = $image_links;
 
         }
