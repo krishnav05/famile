@@ -168,7 +168,7 @@ File::makeDirectory($path, $mode = 0777, true, true);
                 # code...
                 if($doc->document_group == $key->id)
                 {   $str = $doc->document;
-                      
+                      $key->first_image = $doc->document;
                     array_push($image_links, $str);
                 }
             }
