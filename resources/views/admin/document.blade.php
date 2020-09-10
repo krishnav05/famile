@@ -214,7 +214,15 @@
 
 @section('js')
 <script type="text/javascript" src="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/src/jquery.ez-plus.js"></script>
+<script src='https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js'></script>
 <script type="text/javascript">
+Tesseract.recognize(
+  'https://famile.care/prescriptions/{{$profileid}}/{{$docname}}',
+  'eng',
+  { logger: m => console.log(m) }
+).then(({ data: { text } }) => {
+  console.log(text);
+});
     $("#image").ezPlus({
       zoomType: 'inner',
       cursor: 'crosshair'
