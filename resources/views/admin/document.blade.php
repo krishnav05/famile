@@ -217,7 +217,7 @@
 <script src='https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js'></script>
 <script type="text/javascript">
 Tesseract.recognize(
-  'https://famile.care/prescriptions/{{$profileid}}/{{$docname}}',
+  'https://app.famile.care/prescriptions/{{$profileid}}/{{$docname}}',
   'eng',
   { logger: m => console.log(m) }
 ).then(({ data: { text } }) => {
