@@ -9,7 +9,11 @@
 <div class="container">
   <div class="row">
     <div class="col">
-      <img src="/prescriptions/{{$profileid}}/{{$docname}}" style="width: 100%;">
+      <img id="image" src="/prescriptions/{{$profileid}}/{{$docname}}" style="width: 100%;">
+      <br><br>
+      <center>
+        <button style="border-radius: 4px;background-color: #000000;border: none;color: white;  padding: 10px 20px;">Convert to Text</button>
+      </center>
     </div>
     <div class="col">
       <form method="post" action="/admin/updatePrescription">
@@ -142,6 +146,16 @@
       <td scope="col" style="color: #FC608C;background-color: #55F2CD;border-collapse: collapse;border: 0px;">
       </td>
     </tr>
+    <tr>
+      <!-- <td scope="col">
+        <p style="color: #FC608C;float: left;">Medicine Name</p>
+        <p style="color: #FC608C;float: right;">Frequency</p>
+      </td>
+      <td scope="col">
+        <p style="color: #FC608C;float: left;">Duration</p>
+        <p style="color: #FC608C;float: right;">Notes</p>
+      </td> -->
+    </tr>
     @endif
   </tbody>
 </table>
@@ -162,7 +176,15 @@
             </div>
             @endforeach
           </div>
-
+          <div>
+            <div class="column"><p style="color: #FC608C;float: left;">Medicine Name</p></div>
+            <div class="column">
+              <p style="color: #FC608C;float: left;">Frequency</p>
+            </div>
+            <div class="column"><p style="color: #FC608C;float: left;">Duration</p></div>
+            <div class="column"><p style="color: #FC608C;float: left;">Notes</p></div>
+          </div>
+          
           <div id="newRow"></div>
           <button id="addRow" type="button" class="btn btn-info" style="background-color: #33CAFF !important;color: #000000;">+ Add Medicine</button>
           <button type="submit" class="btn btn-outline-dark">Update Prescription</button>
@@ -176,15 +198,27 @@
 
 @section('css')
 <style type="text/css">
- .hi {
-  background-color: blue;
-} 
-</style>
+  .column {
+  float: left;
+  width: 23%;
+}
 
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+</style>
 @stop
 
 @section('js')
+<script type="text/javascript" src="https://cdn.rawgit.com/igorlino/elevatezoom-plus/1.1.6/src/jquery.ez-plus.js"></script>
 <script type="text/javascript">
+    $("#image").ezPlus({
+      zoomType: 'inner',
+      cursor: 'crosshair'
+    });
     // add row
     $("#addRow").click(function() {
       var html = '';
