@@ -42,9 +42,32 @@ class ProfileController extends Controller
     	$profileid = Documents::where('id',$id)->value('profile_id');
         $id = $id;
 
+        $doc_group_id = Documents::where('id',$id)->value('document_group');
+        $doclist = Documents::where('document_group',$doc_group_id)->get();
+
+        $prev = null;
+        $next = null;
+        $check = 0;
+        foreach ($doclist as $key) {
+            # code...
+            if($key->id != $id && $check == 0)
+            {
+                $prev = $key->id;
+            }
+            if($key->id == $id)
+            {   
+                $check = 1;
+                continue;
+            }
+            if($check == 1)
+            {
+                $next = $key->id;
+            }
+        }
+
         $details = ConvertedPrescription::where('doc_id',$id)->get();
         $meddetails = ConvertedPrescriptionMed::where('doc_id',$id)->get();
-    	return view('admin.document',['docname'=>$docname,'profileid'=>$profileid,'id'=>$id,'details'=>$details,'meddetails'=>$meddetails]);
+    	return view('admin.document',['docname'=>$docname,'profileid'=>$profileid,'id'=>$id,'details'=>$details,'meddetails'=>$meddetails,'doclist'=>$doclist,'prev'=>$prev,'next'=>$next]);
     }
 
     public function superadmin()

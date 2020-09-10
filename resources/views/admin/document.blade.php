@@ -6,6 +6,15 @@
 @stop
 
 @section('content')
+<div style="width: 100%;height: 50px;background-color: #0000001A;">
+  <a href="/admin/superadmin"><button style="height: 50px;width: 150px;border: none;color: white;background-color: #686868;">x Cancel</button></a>
+  @if($prev != null)
+  <a href="{{$prev}}"><button style="height: 50px;width: 150px;border: none;color: white;background-color: #B5B3B4;">< Previous</button></a>
+  @endif
+  @if($next != null)
+  <a href="{{$next}}"><button style="height: 50px;width: 150px;border: none;color: white;background-color: #FC608C;float: right;">Next ></button></a>
+  @endif
+</div>
 <div class="container">
   <div class="row">
     <div class="col">
