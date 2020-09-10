@@ -12,14 +12,19 @@
       <img src="/prescriptions/{{$profileid}}/{{$docname}}" style="width: 100%;">
     </div>
     <div class="col">
-      <p style="text-align: center;">Update Details</p>
       <form method="post" action="/admin/updatePrescription">
         @csrf
-      <table class="table table-borderless">
+      <table class="table table-bordered">
   <thead>
     <tr>
-      <th scope="col">List</th>
-      <th scope="col">Value</th>
+      <th scope="col" style="color: #FFFFFF;background-color: #000000;border-collapse: collapse;border: 0px;">Prescription Details</th>
+      <th scope="col" style="color: #FC608C;background-color: #000000;border-collapse: collapse;border: 0px;">
+        <button style="border-radius: 4px;background-color: #55F2CD;border: none;color: black;float: right;">Save Details</button>
+      </th>
+    </tr>
+    <tr>
+      <th scope="col" style="color: #FC608C">List</th>
+      <th scope="col" style="color: #FC608C">Value</th>
     </tr>
   </thead>
   <tbody>
@@ -27,110 +32,115 @@
     @if(isset($details) && count($details) > 0)
     @foreach($details as $detail)
     <tr>
-      <td>Patient Name</td>
+      <td style="background-color:#E0FFFF;">Patient Name</td>
       <td><input type="" name="pname" value="{{$detail['patient_name']}}"></td>
     </tr>
     <tr>
-      <td>Patient Age</td>
+      <td style="background-color:#E0FFFF;">Patient Age</td>
       <td><input type="number" name="page" value="{{$detail['patient_age']}}"></td>
     </tr>
     <tr>
-      <td>Patient Gender</td>
+      <td style="background-color:#E0FFFF;">Patient Gender</td>
       <td><input type="text" name="pgender" value="{{$detail['patient_gender']}}"></td>
     </tr>
     <tr>
-      <td>Doctor Name</td>
+      <td style="background-color:#E0FFFF;">Doctor Name</td>
       <td><input type="text" name="dname" value="{{$detail['doctor_name']}}"></td>
     </tr>
     <tr>
-      <td>Doctor Qualifications</td>
+      <td style="background-color:#E0FFFF;">Doctor Qualifications</td>
       <td><input type="text" name="dqual" value="{{$detail['doctor_qualifications']}}"></td>
     </tr>
     <tr>
-      <td>Height</td>
+      <td style="background-color:#E0FFFF;">Height</td>
       <td><input type="number" name="height" value="{{$detail['height']}}"></td>
     </tr>
     <tr>
-      <td>Weight</td>
+      <td style="background-color:#E0FFFF;">Weight</td>
       <td><input type="number" name="weight" value="{{$detail['weight']}}"></td>
     </tr>
     <tr>
-      <td>Temperature (F)</td>
+      <td style="background-color:#E0FFFF;">Temperature (F)</td>
       <td><input type="text" name="temp" value="{{$detail['temperature']}}"></td>
     </tr>
     <tr>
-      <td>Symptoms</td>
+      <td style="background-color:#E0FFFF;">Symptoms</td>
       <td><input type="text" name="symptoms" value="{{$detail['symptoms']}}"></td>
     </tr>
     <tr>
-      <td>Diagnosis</td>
+      <td style="background-color:#E0FFFF;">Diagnosis</td>
       <td><input type="text" name="diagnosis" value="{{$detail['diagnosis']}}"></td>
     </tr>
     <tr>
-      <td>Hospital</td>
+      <td style="background-color:#E0FFFF;">Hospital</td>
       <td><textarea value="{{$detail['hospital']}}" name="hospital" rows="3" cols="23"></textarea></td>
     </tr>
     <tr>
-      <td>Consultation Date</td>
+      <td style="background-color:#E0FFFF;">Consultation Date</td>
       <td><input type="date" name="cdate" value="{{$detail['consultation_date']}}"></td>
     </tr>
     <tr>
-      <td>Follow Up Date</td>
+      <td style="background-color:#E0FFFF;">Follow Up Date</td>
       <td><input type="date" name="fdate" value="{{$detail['follow_up_date']}}"></td>
     </tr>
     @endforeach
     @else
     <tr>
-      <td>Patient Name</td>
+      <td style="background-color:#E0FFFF;">Patient Name</td>
       <td><input type="" name="pname"></td>
     </tr>
     <tr>
-      <td>Patient Age</td>
+      <td style="background-color:#E0FFFF;">Patient Age</td>
       <td><input type="number" name="page"></td>
     </tr>
     <tr>
-      <td>Patient Gender</td>
+      <td style="background-color:#E0FFFF;">Patient Gender</td>
       <td><input type="text" name="pgender"></td>
     </tr>
     <tr>
-      <td>Doctor Name</td>
+      <td style="background-color:#E0FFFF;">Doctor Name</td>
       <td><input type="text" name="dname"></td>
     </tr>
     <tr>
-      <td>Doctor Qualifications</td>
+      <td style="background-color:#E0FFFF;">Doctor Qualifications</td>
       <td><input type="text" name="dqual"></td>
     </tr>
     <tr>
-      <td>Height</td>
+      <td style="background-color:#E0FFFF;">Height</td>
       <td><input type="number" name="height"></td>
     </tr>
     <tr>
-      <td>Weight</td>
+      <td style="background-color:#E0FFFF;">Weight</td>
       <td><input type="number" name="weight"></td>
     </tr>
     <tr>
-      <td>Temperature (F)</td>
+      <td style="background-color:#E0FFFF;">Temperature (F)</td>
       <td><input type="text" name="temp"></td>
     </tr>
     <tr>
-      <td>Symptoms</td>
+      <td style="background-color:#E0FFFF;">Symptoms</td>
       <td><input type="text" name="symptoms"></td>
     </tr>
     <tr>
-      <td>Diagnosis</td>
+      <td style="background-color:#E0FFFF;">Diagnosis</td>
       <td><input type="text" name="diagnosis"></td>
     </tr>
     <tr>
-      <td>Hospital</td>
+      <td style="background-color:#E0FFFF;">Hospital</td>
       <td><textarea name="hospital" rows="3" cols="23"></textarea></td>
     </tr>
     <tr>
-      <td>Consultation Date</td>
+      <td style="background-color:#E0FFFF;">Consultation Date</td>
       <td><input type="date" name="cdate"></td>
     </tr>
     <tr>
-      <td>Follow Up Date</td>
+      <td style="background-color:#E0FFFF;">Follow Up Date</td>
       <td><input type="date" name="fdate"></td>
+    </tr>
+    <tr>
+      <td scope="col" style="color: #000000;background-color: #55F2CD;border-collapse: collapse;border: 0px;">Prescribed Medicines</td>
+      <td scope="col" style="color: #FC608C;background-color: #55F2CD;border-collapse: collapse;border: 0px;">
+      </td>
     </tr>
     @endif
   </tbody>
@@ -141,10 +151,10 @@
           <div id="inputFormRow">
             @foreach($meddetails as $details)
             <div class="input-group mb-3">
-              <input type="text" name="title[]" class="form-control m-input" placeholder="Enter name" autocomplete="off" value="{{$details['name']}}">
-              <input type="text" name="frequency[]" class="form-control m-input" placeholder="Enter frequency" autocomplete="off" value="{{$details['frequency']}}">
-              <input type="text" name="duration[]" class="form-control m-input" placeholder="Enter duration" autocomplete="off" value="{{$details['duration']}}">
-              <input type="text" name="notes[]" class="form-control m-input" placeholder="Enter notes" autocomplete="off" value="{{$details['notes']}}">
+              <input type="text" name="title[]" class="form-control m-input" placeholder="Medicine name" autocomplete="off" value="{{$details['name']}}">
+              <input type="text" name="frequency[]" class="form-control m-input" placeholder="Frequency" autocomplete="off" value="{{$details['frequency']}}">
+              <input type="text" name="duration[]" class="form-control m-input" placeholder="Duration" autocomplete="off" value="{{$details['duration']}}">
+              <input type="text" name="notes[]" class="form-control m-input" placeholder="Notes" autocomplete="off" value="{{$details['notes']}}">
 
               <div class="input-group-append">
                 <button id="removeRow" type="button" class="btn btn-danger">Remove</button>
@@ -154,7 +164,7 @@
           </div>
 
           <div id="newRow"></div>
-          <button id="addRow" type="button" class="btn btn-info">Add Row</button>
+          <button id="addRow" type="button" class="btn btn-info" style="background-color: #33CAFF !important;color: #000000;">+ Add Medicine</button>
           <button type="submit" class="btn btn-outline-dark">Update Prescription</button>
         </div>
       </div>
@@ -165,6 +175,12 @@
 @stop
 
 @section('css')
+<style type="text/css">
+ .hi {
+  background-color: blue;
+} 
+</style>
+
 @stop
 
 @section('js')
@@ -174,10 +190,10 @@
       var html = '';
       html += '<div id="inputFormRow">';
       html += '<div class="input-group mb-3">';
-      html += '<input type="text" name="title[]" class="form-control m-input" placeholder="Enter name" autocomplete="off">';
-      html += '<input type="text" name="frequency[]" class="form-control m-input" placeholder="Enter frequency" autocomplete="off">';
-      html += '<input type="text" name="duration[]" class="form-control m-input" placeholder="Enter duration" autocomplete="off">';
-      html += '<input type="text" name="notes[]" class="form-control m-input" placeholder="Enter notes" autocomplete="off">';
+      html += '<input type="text" name="title[]" class="form-control m-input" placeholder="Medicine name" autocomplete="off">';
+      html += '<input type="text" name="frequency[]" class="form-control m-input" placeholder="Frequency" autocomplete="off">';
+      html += '<input type="text" name="duration[]" class="form-control m-input" placeholder="Duration" autocomplete="off">';
+      html += '<input type="text" name="notes[]" class="form-control m-input" placeholder="Notes" autocomplete="off">';
       html += '<div class="input-group-append">';
       html += '<button id="removeRow" type="button" class="btn btn-danger">Remove</button>';
       html += '</div>';

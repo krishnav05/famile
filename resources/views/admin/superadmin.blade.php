@@ -13,8 +13,8 @@
       <th scope="col">Document</th>
       <th scope="col">Profile</th>
       <th scope="col">Created_at</th>
-      <th scope="col">Status</th>
       <th scope="col">Action</th>
+      <th scope="col">Status</th>
     </tr>
   </thead>
   <tbody>
@@ -28,8 +28,8 @@
       @endif
       @endforeach
       <td>{{$document['created_at']}}</td>
-      <td>Not Converted</td>
       <td><a href="/admin/docview/{{$document['id']}}">View Details</a></td>
+      <td><button style="border-radius: 4px;background-color: #FC608C;border: none;color: white;">Update Information</button></td>
     </tr>
     @endforeach
   </tbody>
