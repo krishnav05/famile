@@ -171,6 +171,14 @@
 
       <div class="row">
         <div class="col-lg-12">
+          <div>
+            <div class="column"><p style="color: #FC608C;float: left;">Medicine Name</p></div>
+            <div class="column">
+              <p style="color: #FC608C;float: left;">Frequency</p>
+            </div>
+            <div class="column"><p style="color: #FC608C;float: left;">Duration</p></div>
+            <div class="column"><p style="color: #FC608C;float: left;">Notes</p></div>
+          </div>
           <div id="inputFormRow">
             @foreach($meddetails as $details)
             <div class="input-group mb-3">
@@ -185,14 +193,7 @@
             </div>
             @endforeach
           </div>
-          <div>
-            <div class="column"><p style="color: #FC608C;float: left;">Medicine Name</p></div>
-            <div class="column">
-              <p style="color: #FC608C;float: left;">Frequency</p>
-            </div>
-            <div class="column"><p style="color: #FC608C;float: left;">Duration</p></div>
-            <div class="column"><p style="color: #FC608C;float: left;">Notes</p></div>
-          </div>
+          
           
           <div id="newRow"></div>
           <button id="addRow" type="button" class="btn btn-info" style="background-color: #33CAFF !important;color: #000000;">+ Add Medicine</button>
