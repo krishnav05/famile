@@ -29,7 +29,13 @@
       @endforeach
       <td>{{$document['created_at']}}</td>
       <td><a href="/admin/docview/{{$document['id']}}">View Details</a></td>
-      <td><button style="border-radius: 4px;background-color: #FC608C;border: none;color: white;">Update Information</button></td>
+      <td>
+        @if($document['completed'] == 0)
+        <button style="border-radius: 4px;background-color: #FC608C;border: none;color: white;">Update Information</button>
+        @else
+        <i class="fa fa-check-circle" aria-hidden="true" style="color: #55F2CD;"></i>
+        @endif
+      </td>
     </tr>
     @endforeach
   </tbody>

@@ -74,6 +74,18 @@ class ProfileController extends Controller
     {   
         $users = Profile::all();
         $documents = Documents::all();
+        foreach ($documents as $key) {
+            # code...
+            $check = ConvertedPrescription::where('doc_id',$key->id)->first();
+            if($check)
+            {
+                $key['completed'] = 1;
+            }
+            else
+            {
+                $key['completed'] = 0;
+            }
+        }
         return view('admin.superadmin',['documents'=>$documents,'users'=>$users]);
     }
 
