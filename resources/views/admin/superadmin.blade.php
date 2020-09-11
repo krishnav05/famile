@@ -33,7 +33,8 @@
         @if($document['completed'] == 0)
         <button style="border-radius: 4px;background-color: #FC608C;border: none;color: white;">Update Information</button>
         @else
-        <i class="fa fa-check-circle" aria-hidden="true" style="color: #55F2CD;"></i>
+        <center><i class="fa fa-check-circle" aria-hidden="true" style="color: #55F2CD;"></i></center>
+        
         @endif
       </td>
     </tr>
