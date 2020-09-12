@@ -172,12 +172,23 @@
       <div class="row">
         <div class="col-lg-12">
           <div>
-            <div class="column"><p style="color: #FC608C;float: left;">Medicine Name</p></div>
-            <div class="column">
-              <p style="color: #FC608C;float: left;">Frequency</p>
+            <div class="column"><strong>
+              <p style="color: #000000;float: left;">Medicine Name</p>
+            </strong></div>
+            <div class="column"><strong>
+              <p style="color: #000000;float: left;">Frequency</p>
+            </strong>
             </div>
-            <div class="column"><p style="color: #FC608C;float: left;">Duration</p></div>
-            <div class="column"><p style="color: #FC608C;float: left;">Notes</p></div>
+            <div class="column">
+              <strong>
+              <p style="color: #000000;float: left;">Duration</p>  
+              </strong>
+              </div>
+            <div class="column">
+              <strong>
+              <p style="color: #000000;float: left;">Notes</p>  
+              </strong>
+              </div>
           </div>
           <div id="inputFormRow">
             @foreach($meddetails as $details)
