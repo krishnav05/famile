@@ -106,10 +106,7 @@ return response()
             }
         }
         foreach ($new as $key) {
-            if($new->id == $id)
-            {
                 $key->image_links = $image_links;
-            }
         }
 return response()
             ->json($new);
