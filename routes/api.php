@@ -95,6 +95,17 @@ return response()
     });
     Route::post('profiledetail',function(){
     	$new = Profile::where('id',$_POST['memberid'])->get();
+        $documents = Documents::get();
+        $id = $_POST['memberid'];
+        $image_links = array();
+        foreach ($documents as $doc) {
+            if($doc->profile_id == $id)
+            {
+                $str = $doc->document;
+                array_push($image_links, $str);
+            }
+        }
+        $new->image_links = $image_links;
 return response()
             ->json($new);
     });
