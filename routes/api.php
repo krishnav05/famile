@@ -105,7 +105,12 @@ return response()
                 array_push($image_links, $str);
             }
         }
-        $new->image_links = $image_links;
+        foreach ($new as $key) {
+            if($new->id == $id)
+            {
+                $key->image_links = $image_links;
+            }
+        }
 return response()
             ->json($new);
     });
