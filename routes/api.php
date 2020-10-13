@@ -115,7 +115,7 @@ return response()
     Route::post('sendotp',function(){
     	if(strlen($_POST['phone']) != 13)
     	{
-    		exit;
+    		return;
     	}
 
     	$check = User::where('phone',$_POST['phone'])->first();
@@ -169,7 +169,7 @@ return response()
             $curl = curl_init();
 
             curl_setopt_array($curl, array(
-              CURLOPT_URL => "https://2factor.in/API/V1/7f3c1f82-0d1b-11eb-9fa5-0200cd936042/SMS/".$validatedData['phone']."/".$otp,
+              CURLOPT_URL => "https://2factor.in/API/V1/7f3c1f82-0d1b-11eb-9fa5-0200cd936042/SMS/".$_POST['phone']."/".$otp,
               CURLOPT_RETURNTRANSFER => true,
               CURLOPT_ENCODING => "",
               CURLOPT_MAXREDIRS => 10,
