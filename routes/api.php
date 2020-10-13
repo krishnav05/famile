@@ -115,7 +115,9 @@ return response()
     Route::post('sendotp',function(){
     	if(strlen($_POST['phone']) != 13)
     	{
-    		return;
+    		return Response::json([
+    'error' => 'error'
+], 201); // Status code here
     	}
 
     	$check = User::where('phone',$_POST['phone'])->first();
