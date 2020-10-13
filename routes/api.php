@@ -113,11 +113,104 @@ return response()
     });
 
     Route::post('sendotp',function(){
+    	$validatedData = $request->validate([
+    		'phone' => 'required|numeric|digits:10',
+    	]);
+    	if(strlen($_POST['phone']) != 10)
+    	{
+    		exit;
+    	}
+
+    	$check = User::where('phone',$_POST['phone'])->first();
+
+    	if($check)
+    	{
+    		$otp = rand(1000,9999);
+            User::where('phone',$_POST['phone'])->update(['otp'=>$otp]);
+            //send message with otp here
+
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => "https://2factor.in/API/V1/7f3c1f82-0d1b-11eb-9fa5-0200cd936042/SMS/".$_POST['phone']."/".$otp,
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => "",
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 30,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => "GET",
+              CURLOPT_POSTFIELDS => "",
+              CURLOPT_HTTPHEADER => array(
+                "content-type: application/x-www-form-urlencoded"
+              ),
+            ));
+
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+
+            curl_close($curl);
+
+            if ($err) {
+              echo "cURL Error #:" . $err;
+            } else {
+              // echo $response;
+                return response()->json(['status'=>'success']);
+            }
+
+            
+    	}
+    	else
+    	{
+    		$patient = new User;
+    		$patient->phone = $_POST['phone'];
+    		$patient->save();
+
+    		$otp = rand(1000,9999);
+            User::where('phone',$_POST['phone'])->update(['otp'=>$otp]);
+            //send message with otp here
+
+            $curl = curl_init();
+
+            curl_setopt_array($curl, array(
+              CURLOPT_URL => "https://2factor.in/API/V1/7f3c1f82-0d1b-11eb-9fa5-0200cd936042/SMS/".$validatedData['phone']."/".$otp,
+              CURLOPT_RETURNTRANSFER => true,
+              CURLOPT_ENCODING => "",
+              CURLOPT_MAXREDIRS => 10,
+              CURLOPT_TIMEOUT => 30,
+              CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+              CURLOPT_CUSTOMREQUEST => "GET",
+              CURLOPT_POSTFIELDS => "",
+              CURLOPT_HTTPHEADER => array(
+                "content-type: application/x-www-form-urlencoded"
+              ),
+            ));
+
+            $response = curl_exec($curl);
+            $err = curl_error($curl);
+
+            curl_close($curl);
+
+            if ($err) {
+              echo "cURL Error #:" . $err;
+            } else {
+              // echo $response;
+                return response()->json(['status'=>'success']);
+            }
+    		return response()->json(['status'=>'success']);
+    	}
+
     	return response()->json(['status'=>'success']);
     });
 
     Route::post('verifyotp',function(){
-    	return response()->json(['status'=>'success']);
+    	$pin = $_POST['otp'];
+        $user = User::where('phone',$_POST['phone'])->where('otp',$pin)->first();
+
+        if($user)
+        {	
+            	User::where('phone',$_POST['phone'])->update(['otp'=>null]);
+            	return response()->json(['status'=>'success','user'=>$user->id]);
+          } 
     });
 
     Route::post('addprofile',function(){
