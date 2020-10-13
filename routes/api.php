@@ -210,6 +210,9 @@ return response()
             	User::where('phone',$_POST['phone'])->update(['otp'=>null]);
             	return response()->json(['status'=>'success','user'=>$user->id]);
           } 
+          return Response::json([
+    'error' => 'error'
+], 201); // Status code here
     });
 
     Route::post('addprofile',function(){
