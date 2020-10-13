@@ -113,10 +113,7 @@ return response()
     });
 
     Route::post('sendotp',function(){
-    	$validatedData = $request->validate([
-    		'phone' => 'required|numeric|digits:10',
-    	]);
-    	if(strlen($_POST['phone']) != 10)
+    	if(strlen($_POST['phone']) != 13)
     	{
     		exit;
     	}
