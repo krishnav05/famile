@@ -305,11 +305,10 @@ File::makeDirectory($path, $mode = 0777, true, true);
         $new = Documents::where('profile_id',$_POST['profileid'])->orderBy('id', 'DESC')->get();
         $image_links = array();
         foreach($new as $n){
-            $string = 'https://app.famile.care/prescriptions/'+$n->profile_id+'/'+$n->document;
+            $string = 'https://app.famile.care/prescriptions/'.$n->profile_id.'/'.$n->document;
             array_push($image_links, $string);
         }
-        $new->image_links = $image_links;
-        return response()->json($new);
+        return response()->json($image_links);
     });
 
     Route::post('setlocation',function(){
