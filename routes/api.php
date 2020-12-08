@@ -302,13 +302,20 @@ File::makeDirectory($path, $mode = 0777, true, true);
     });
     
     Route::post('getscrollableimages',function(){
-        $new = Documents::where('profile_id',$_POST['profileid'])->orderBy('id', 'DESC')->get();
+        $new = GroupDocument::where('user_id',$_POST['profileid'])->orderBy('id', 'DESC')->get();
+        $documents = Documents::get();
         $image_links = array();
-        foreach($new as $n){
-            $string = 'https://app.famile.care/prescriptions/'.$n->profile_id.'/'.$n->document;
-            array_push($image_links, $string);
+        foreach($new as $n) {
+            foreach($documents as $doc) {
+                if($n->id == $doc->document_group)
+                {
+                    $data = [ 'id' => $n->profile_id , 'name' => $doc->document];
+                    array_push($image_links, $data);
+                }
+            }
         }
-        return response()->json($image_links);
+        
+        return  response()->json($image_links);
     });
 
     Route::post('setlocation',function(){
