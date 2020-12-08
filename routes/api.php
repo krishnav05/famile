@@ -300,6 +300,16 @@ File::makeDirectory($path, $mode = 0777, true, true);
         }
     		return response()->json($new);
     });
+    
+    Route::post('getscrollableimages',function(){
+        $new = Document::where('profile_id',$_POST['profileid'])->orderBy('id', 'DESC')->get();
+        $image_links = array();
+        foreach($new as $n){
+            $string = 'https://app.famile.care/prescriptions/'+$n->profile_id+'/'+$n->document;
+            array_push($image_links, $string);
+        }
+        return response()->json($image_links);
+    });
 
     Route::post('setlocation',function(){
         User::where('id',$_POST['profileid'])->update(['location'=>$_POST['location']]);
