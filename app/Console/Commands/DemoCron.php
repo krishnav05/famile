@@ -43,7 +43,7 @@ class DemoCron extends Command
         foreach ($users as $user) {
             # code...
             $random = rand(1000,9999);
-            User::where('id',$user->id)->update(['sharecode',$random]);
+            User::where('id',$user['id'])->update(['sharecode',$random]);
         }
         /*
            Write your database logic we bellow:
