@@ -11,7 +11,6 @@
   <title>Famile</title>
 </head>
 <body>
-  <div class="container">
     <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
     @foreach($profiles as $profile)
     @if ($loop->first)
@@ -86,7 +85,6 @@
   @endif
   @endforeach
 </div>
-  </div>
   
 
   <!-- Optional JavaScript; choose one of the two! -->
