@@ -89,7 +89,7 @@
   <script type="text/javascript">
     @foreach($profiles as $profile)
     $(document).ready(function () {
-      $('#carouselExampleControls{{str_replace(' ', '', $profile['name'])}}').find('.item').first().addClass('active');
+      $('#carouselExampleControls{{str_replace(' ', '', $profile['name'])}}').find('.carousel-item').first().addClass('active');
     });
     @endforeach
   </script>
