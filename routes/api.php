@@ -323,4 +323,12 @@ File::makeDirectory($path, $mode = 0777, true, true);
 
         return response()->json(['status'=>'success']);
     });
+
+    Route::post('sharecode',function(){
+        $sharecode = User::where('id',$_POST['id'])->get('sharecode');
+        $new = json_encode([
+            'sharecode' => $sharecode,
+        });
+        return response($new);
+    });
 });
