@@ -16,11 +16,11 @@
     @foreach($profiles as $profile)
     @if ($loop->first)
     <li class="nav-item" role="presentation">
-      <a class="nav-link active" id="{{$profile['id']}}-tab" data-bs-toggle="tab" href="#{{$profile['id']}}" role="tab" aria-controls="{{$profile['id']}}" aria-selected="true">{{$profile['name']}}</a>
+      <a class="nav-link active" id="p{{$profile['id']}}-tab" data-bs-toggle="tab" href="#p{{$profile['id']}}" role="tab" aria-controls="p{{$profile['id']}}" aria-selected="true">{{$profile['name']}}</a>
     </li>
     @else
     <li class="nav-item" role="presentation">
-      <a class="nav-link" id="{{$profile['id']}}-tab" data-bs-toggle="tab" href="#{{$profile['id']}}" role="tab" aria-controls="{{$profile['id']}}" aria-selected="false">{{$profile['name']}}</a>
+      <a class="nav-link" id="p{{$profile['id']}}-tab" data-bs-toggle="tab" href="#p{{$profile['id']}}" role="tab" aria-controls="p{{$profile['id']}}" aria-selected="false">{{$profile['name']}}</a>
     </li>
     @endif
     @endforeach
@@ -28,7 +28,7 @@
 <div class="tab-content" id="myTabContent">
   @foreach($profiles as $profile)
   @if ($loop->first)
-  <div class="tab-pane fade show active" id="{{$profile['id']}}" role="tabpanel" aria-labelledby="{{$profile['id']}}-tab">
+  <div class="tab-pane fade show active" id="p{{$profile['id']}}" role="tabpanel" aria-labelledby="p{{$profile['id']}}-tab">
     <div id="carouselExampleControls{{$profile['id']}}" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           @foreach($documents as $document)
@@ -56,7 +56,7 @@
       </div>
   </div>
   @else
-  <div class="tab-pane fade" id="{{$profile['id']}}" role="tabpanel" aria-labelledby="{{$profile['id']}}-tab">
+  <div class="tab-pane fade" id="p{{$profile['id']}}" role="tabpanel" aria-labelledby="p{{$profile['id']}}-tab">
     <div id="carouselExampleControls{{$profile['id']}}" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           @foreach($documents as $document)
