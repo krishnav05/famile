@@ -30,7 +30,7 @@
       <div id="carouselExampleControls{{$profile['id']}}" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           @foreach($documents as $document)
-          @if($document['profile_id'] == $profile['id']])
+          @if($document['profile_id'] == $profile['id'])
           @if ($loop->first)
           <div class="carousel-item active">
             <img src="/prescriptions/{{$profile['id']}}/{{$document['document']}}" class="d-block w-100">
@@ -58,7 +58,7 @@
       <div id="carouselExampleControls{{$profile['id']}}" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           @foreach($documents as $document)
-          @if($document['profile_id'] == $profile['id']])
+          @if($document['profile_id'] == $profile['id'])
           @if ($loop->first)
           <div class="carousel-item active">
             <img src="/prescriptions/{{$profile['id']}}/{{$document['document']}}" class="d-block w-100">
