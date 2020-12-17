@@ -28,7 +28,7 @@
   @foreach($profiles as $profile)
   @if ($loop->first)
   <div class="tab-pane active" id="{{str_replace(' ', '', $profile['name'])}}" role="tabpanel" aria-labelledby="{{str_replace(' ', '', $profile['name'])}}-tab">
-    <div id="carouselExampleControls{{str_replace(' ', '', $profile['name'])}}" class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselExampleControls{{str_replace(' ', '', $profile['name'])}}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false" data-bs-wrap="false">
         <div class="carousel-inner">
           @foreach($documents as $document)
           @if($document['profile_id'] == $profile['id'])
@@ -50,7 +50,7 @@
   </div>
   @else
   <div class="tab-pane" id="{{str_replace(' ', '', $profile['name'])}}" role="tabpanel" aria-labelledby="{{str_replace(' ', '', $profile['name'])}}-tab">
-    <div id="carouselExampleControls{{str_replace(' ', '', $profile['name'])}}" class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselExampleControls{{str_replace(' ', '', $profile['name'])}}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false" data-bs-wrap="false">
         <div class="carousel-inner">
           @foreach($documents as $document)
           @if($document['profile_id'] == $profile['id'])
