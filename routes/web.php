@@ -1,7 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\User;
+use App\Profile;
+use App\GroupDocument;
+use App\Documents;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,3 +23,19 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//show documents to doctor url
+Route::get('/docview/{id}/{sharecode}', function ($id,$sharecode) {
+	$user = User::where('id',$id)->where('sharecode',$sharecode)->first();
+
+	if($user)
+	{	
+		$profiles = Profile::where('user_id',$id)->get();
+		$documents = Documents::get();
+		return view('docViewFiles',['profiles'=>$profiles,'documents'=>$documents]);
+	}
+	else
+	{
+		return view('docsPageExpired');
+	}
+});
