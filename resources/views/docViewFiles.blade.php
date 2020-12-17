@@ -26,6 +26,7 @@
   </ul>
   <div class="tab-content" id="myTabContent">
     @foreach($profiles as $profile)
+    @if ($loop->first)
     <div class="tab-pane fade show active" id="{{$profile['id']}}" role="tabpanel">
       <div id="carouselExampleControls{{$profile['id']}}" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
