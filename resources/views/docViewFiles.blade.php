@@ -91,6 +91,9 @@
     $(document).ready(function () {
       $('#carouselExampleControls{{str_replace(' ', '', $profile['name'])}}').find('.carousel-item').first().addClass('active');
     });
+    $('#carouselExampleControls{{str_replace(' ', '', $profile['name'])}}').carousel({
+  wrap: false
+});
     @endforeach
   </script>
 </body>
