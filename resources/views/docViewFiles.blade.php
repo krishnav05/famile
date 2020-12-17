@@ -28,7 +28,7 @@
   @foreach($profiles as $profile)
   @if ($loop->first)
   <div class="tab-pane active" id="{{str_replace(' ', '', $profile['name'])}}" role="tabpanel" aria-labelledby="{{str_replace(' ', '', $profile['name'])}}-tab">
-    <div id="carouselExampleControls{{$profile['id']}}" class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselExampleControls{{str_replace(' ', '', $profile['name'])}}" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           @foreach($documents as $document)
           @if($document['profile_id'] == $profile['id'])
@@ -44,11 +44,11 @@
           @endif
           @endforeach
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls{{$profile['id']}}" role="button" data-bs-slide="prev">
+        <a class="carousel-control-prev" href="#carouselExampleControls{{str_replace(' ', '', $profile['name'])}}" role="button" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#carouselExampleControls{{$profile['id']}}" role="button" data-bs-slide="next">
+        <a class="carousel-control-next" href="#carouselExampleControls{{str_replace(' ', '', $profile['name'])}}" role="button" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </a>
@@ -56,7 +56,7 @@
   </div>
   @else
   <div class="tab-pane" id="{{str_replace(' ', '', $profile['name'])}}" role="tabpanel" aria-labelledby="{{str_replace(' ', '', $profile['name'])}}-tab">
-    <div id="carouselExampleControls{{$profile['id']}}" class="carousel slide" data-bs-ride="carousel">
+    <div id="carouselExampleControls{{str_replace(' ', '', $profile['name'])}}" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           @foreach($documents as $document)
           @if($document['profile_id'] == $profile['id'])
@@ -72,11 +72,11 @@
           @endif
           @endforeach
         </div>
-        <a class="carousel-control-prev" href="#carouselExampleControls{{$profile['id']}}" role="button" data-bs-slide="prev">
+        <a class="carousel-control-prev" href="#carouselExampleControls{{str_replace(' ', '', $profile['name'])}}" role="button" data-bs-slide="prev">
           <span class="carousel-control-prev-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Previous</span>
         </a>
-        <a class="carousel-control-next" href="#carouselExampleControls{{$profile['id']}}" role="button" data-bs-slide="next">
+        <a class="carousel-control-next" href="#carouselExampleControls{{str_replace(' ', '', $profile['name'])}}" role="button" data-bs-slide="next">
           <span class="carousel-control-next-icon" aria-hidden="true"></span>
           <span class="visually-hidden">Next</span>
         </a>
