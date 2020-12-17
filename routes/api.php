@@ -325,7 +325,7 @@ File::makeDirectory($path, $mode = 0777, true, true);
     });
 
     Route::post('sharecode',function(){
-        $sharecode = User::where('id',$_POST['id'])->get();
+        $sharecode = User::where('id',$_POST['id'])->get('sharecode');
         return response()->json(['sharecode'=>$sharecode]);
     });
 });
