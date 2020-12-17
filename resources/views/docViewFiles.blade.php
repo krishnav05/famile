@@ -27,7 +27,7 @@
 <div class="tab-content" id="myTabContent">
   @foreach($profiles as $profile)
   @if ($loop->first)
-  <div class="tab-pane fade show active" id="{{str_replace(' ', '', $profile['name'])}}" role="tabpanel" aria-labelledby="{{str_replace(' ', '', $profile['name'])}}-tab">
+  <div class="tab-pane active" id="{{str_replace(' ', '', $profile['name'])}}" role="tabpanel" aria-labelledby="{{str_replace(' ', '', $profile['name'])}}-tab">
     <div id="carouselExampleControls{{$profile['id']}}" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           @foreach($documents as $document)
@@ -55,7 +55,7 @@
       </div>
   </div>
   @else
-  <div class="tab-pane fade" id="{{str_replace(' ', '', $profile['name'])}}" role="tabpanel" aria-labelledby="{{str_replace(' ', '', $profile['name'])}}-tab">
+  <div class="tab-pane" id="{{str_replace(' ', '', $profile['name'])}}" role="tabpanel" aria-labelledby="{{str_replace(' ', '', $profile['name'])}}-tab">
     <div id="carouselExampleControls{{$profile['id']}}" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           @foreach($documents as $document)
