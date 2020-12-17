@@ -15,11 +15,11 @@
     @foreach($profiles as $profile)
     @if ($loop->first)
     <li class="nav-item" role="presentation">
-      <a class="nav-link active" id="{{trim($profile['name'])}}-tab" data-bs-toggle="tab" href="#{{trim($profile['name'])}}" role="tab" aria-controls="{{trim($profile['name'])}}" aria-selected="true">{{$profile['name']}}</a>
+      <a class="nav-link active" id="{{str_replace(' ', '', $profile['name'])}}-tab" data-bs-toggle="tab" href="#{{str_replace(' ', '', $profile['name'])}}" role="tab" aria-controls="{{str_replace(' ', '', $profile['name'])}}" aria-selected="true">{{$profile['name']}}</a>
     </li>
     @else
     <li class="nav-item" role="presentation">
-      <a class="nav-link" id="{{trim($profile['name'])}}-tab" data-bs-toggle="tab" href="#{{trim($profile['name'])}}" role="tab" aria-controls="{{trim($profile['name'])}}" aria-selected="false">{{$profile['name']}}</a>
+      <a class="nav-link" id="{{str_replace(' ', '', $profile['name'])}}-tab" data-bs-toggle="tab" href="#{{str_replace(' ', '', $profile['name'])}}" role="tab" aria-controls="{{str_replace(' ', '', $profile['name'])}}" aria-selected="false">{{$profile['name']}}</a>
     </li>
     @endif
     @endforeach
@@ -27,7 +27,7 @@
 <div class="tab-content" id="myTabContent">
   @foreach($profiles as $profile)
   @if ($loop->first)
-  <div class="tab-pane fade show active" id="{{trim($profile['name'])}}" role="tabpanel" aria-labelledby="{{trim($profile['name'])}}-tab">
+  <div class="tab-pane fade show active" id="{{str_replace(' ', '', $profile['name'])}}" role="tabpanel" aria-labelledby="{{str_replace(' ', '', $profile['name'])}}-tab">
     <div id="carouselExampleControls{{$profile['id']}}" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           @foreach($documents as $document)
@@ -55,7 +55,7 @@
       </div>
   </div>
   @else
-  <div class="tab-pane fade" id="{{trim($profile['name'])}}" role="tabpanel" aria-labelledby="{{trim($profile['name'])}}-tab">
+  <div class="tab-pane fade" id="{{str_replace(' ', '', $profile['name'])}}" role="tabpanel" aria-labelledby="{{str_replace(' ', '', $profile['name'])}}-tab">
     <div id="carouselExampleControls{{$profile['id']}}" class="carousel slide" data-bs-ride="carousel">
         <div class="carousel-inner">
           @foreach($documents as $document)
