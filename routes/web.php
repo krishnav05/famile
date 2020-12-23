@@ -25,12 +25,12 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 //show documents to doctor url
-Route::get('/docview/{id}/{sharecode}', function ($id,$sharecode) {
+Route::get('/docview/{id}/{subid}/{sharecode}', function ($id,$subid,$sharecode) {
 	$user = User::where('id',$id)->where('sharecode',$sharecode)->first();
 
 	if($user)
 	{	
-		$profiles = Profile::where('user_id',$id)->get();
+		$profiles = Profile::where('user_id',$id)->where('id',$subid)->get();
 		$documents = Documents::get();
 		return view('docViewFiles',['profiles'=>$profiles,'documents'=>$documents]);
 	}
