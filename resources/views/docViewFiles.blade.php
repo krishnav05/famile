@@ -40,11 +40,11 @@
           @endforeach
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls{{str_replace(' ', '', $profile['name'])}}" role="button" data-bs-slide="prev">
-          <i class="fas fa-arrow-left" style="color: #FF338A !important;"></i>
+          <i class="fas fa-arrow-left fa-2x" style="color: #FF338A !important;"></i>
           <span class="visually-hidden">Previous</span>
         </a>
         <a class="carousel-control-next" href="#carouselExampleControls{{str_replace(' ', '', $profile['name'])}}" role="button" data-bs-slide="next">
-          <i class="fas fa-arrow-right" style="color: #FF338A !important;"></i>
+          <i class="fas fa-arrow-right fa-2x" style="color: #FF338A !important;"></i>
           <span class="visually-hidden">Next</span>
         </a>
       </div>
@@ -62,11 +62,11 @@
           @endforeach
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls{{str_replace(' ', '', $profile['name'])}}" role="button" data-bs-slide="prev">
-          <i class="fas fa-arrow-left" style="color: #FF338A !important;"></i>
+          <i class="fas fa-arrow-left fa-2x" style="color: #FF338A !important;"></i>
           <span class="visually-hidden">Previous</span>
         </a>
         <a class="carousel-control-next" href="#carouselExampleControls{{str_replace(' ', '', $profile['name'])}}" role="button" data-bs-slide="next">
-          <i class="fas fa-arrow-right" style="color: #FF338A !important;"></i>
+          <i class="fas fa-arrow-right fa-2x" style="color: #FF338A !important;"></i>
           <span class="visually-hidden">Next</span>
         </a>
       </div>
