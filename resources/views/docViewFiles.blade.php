@@ -16,7 +16,7 @@
     @foreach($profiles as $profile)
     @if ($loop->first)
     <li class="nav-item" role="presentation">
-      <a class="nav-link active" id="{{str_replace(' ', '', $profile['name'])}}-tab" data-bs-toggle="tab" href="#{{str_replace(' ', '', $profile['name'])}}" role="tab" aria-controls="{{str_replace(' ', '', $profile['name'])}}" aria-selected="true">{{$profile['name']}}</a>
+      <a class="nav-link active" id="{{str_replace(' ', '', $profile['name'])}}-tab" data-bs-toggle="tab" href="#{{str_replace(' ', '', $profile['name'])}}" role="tab" aria-controls="{{str_replace(' ', '', $profile['name'])}}" aria-selected="true"><h3 class="fst-italic">{{$profile['name']}}</h3></a>
     </li>
     @else
     <li class="nav-item" role="presentation">
@@ -40,11 +40,11 @@
           @endforeach
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls{{str_replace(' ', '', $profile['name'])}}" role="button" data-bs-slide="prev">
-          <i class="fas fa-arrow-left" style="color: black !important;"></i>
+          <i class="fas fa-arrow-left" style="color: #FF338A !important;"></i>
           <span class="visually-hidden">Previous</span>
         </a>
         <a class="carousel-control-next" href="#carouselExampleControls{{str_replace(' ', '', $profile['name'])}}" role="button" data-bs-slide="next">
-          <i class="fas fa-arrow-right" style="color: black !important;"></i>
+          <i class="fas fa-arrow-right" style="color: #FF338A !important;"></i>
           <span class="visually-hidden">Next</span>
         </a>
       </div>
@@ -62,11 +62,11 @@
           @endforeach
         </div>
         <a class="carousel-control-prev" href="#carouselExampleControls{{str_replace(' ', '', $profile['name'])}}" role="button" data-bs-slide="prev">
-          <i class="fas fa-arrow-left" style="color: black !important;"></i>
+          <i class="fas fa-arrow-left" style="color: #FF338A !important;"></i>
           <span class="visually-hidden">Previous</span>
         </a>
         <a class="carousel-control-next" href="#carouselExampleControls{{str_replace(' ', '', $profile['name'])}}" role="button" data-bs-slide="next">
-          <i class="fas fa-arrow-right" style="color: black !important;"></i>
+          <i class="fas fa-arrow-right" style="color: #FF338A !important;"></i>
           <span class="visually-hidden">Next</span>
         </a>
       </div>
