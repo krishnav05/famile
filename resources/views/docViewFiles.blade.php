@@ -34,7 +34,7 @@
           @foreach($documents as $document)
           @if($document['profile_id'] == $profile['id'])
           <div class="carousel-item">
-            <img src="/prescriptions/{{$profile['id']}}/{{$document['document']}}" class="d-block w-100">
+            <img src="/prescriptions/{{$profile['id']}}/{{$document['document']}}" class="d-block">
           </div>
           @endif
           @endforeach
@@ -56,7 +56,7 @@
           @foreach($documents as $document)
           @if($document['profile_id'] == $profile['id'])
           <div class="carousel-item">
-            <img src="/prescriptions/{{$profile['id']}}/{{$document['document']}}" class="d-block w-100">
+            <img src="/prescriptions/{{$profile['id']}}/{{$document['document']}}" class="d-block">
           </div>
           @endif
           @endforeach
