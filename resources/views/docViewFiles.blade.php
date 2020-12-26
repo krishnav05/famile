@@ -8,15 +8,35 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+  <style type="text/css">
+    .nav-tabs {
+  border-bottom: 0px solid transparent;
+}
+.nav-tabs .nav-link {
+  border: 0px solid transparent;
+}
+.btn-group-xs > .btn, .btn-xs {
+  padding: .25rem .4rem;
+  font-size: .5rem;
+  line-height: .6;
+  border-radius: .2rem;
+}
+.upper-name{
+  font-size: 10px;
+  font-weight: 600;
+}
+  </style>
   <title>Famile</title>
 </head>
 <body>
   <div class="container">
+    <div class="row align-items-center">
+    <div class="col-4">
     <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
     @foreach($profiles as $profile)
     @if ($loop->first)
     <li class="nav-item" role="presentation">
-      <a class="nav-link active" id="{{str_replace(' ', '', $profile['name'])}}-tab" data-bs-toggle="tab" href="#{{str_replace(' ', '', $profile['name'])}}" role="tab" aria-controls="{{str_replace(' ', '', $profile['name'])}}" aria-selected="true"><h3 class="fst-italic">{{$profile['name']}}</h3></a>
+      <a class="nav-link active" id="{{str_replace(' ', '', $profile['name'])}}-tab" data-bs-toggle="tab" href="#{{str_replace(' ', '', $profile['name'])}}" role="tab" aria-controls="{{str_replace(' ', '', $profile['name'])}}" aria-selected="true"><span class="upper-name" style="float: left;">{{$profile['name']}}</span></a>
     </li>
     @else
     <li class="nav-item" role="presentation">
@@ -25,6 +45,17 @@
     @endif
     @endforeach
   </ul>
+  </div>
+  <div class="col-3">
+      <button type="button" id="quickView" class="btn btn-outline-secondary btn-xs custom-button">Quick View</button>
+    </div>
+    <div class="col-3">
+      <button type="button" id="prescription" class="btn btn-outline-secondary btn-xs custom-button">Prescription</button>
+    </div>
+    <div class="col-2">
+      <button type="button" id="reports" class="btn btn-outline-secondary btn-xs custom-button">Reports</button>
+    </div>
+  </div>
 <div class="tab-content" id="myTabContent">
   @foreach($profiles as $profile)
   @if ($loop->first)
@@ -74,6 +105,8 @@
   @endif
   @endforeach
 </div>
+ <div class="row text-center" id="Rep" style="display: none;"><h5>No Reports Available Yet</h5></div>
+ <div class="row text-center" id="Pres" style="display: none;"><h5>No Prescriptions Available Yet</h5></div>
  </div> 
 
   <!-- Optional JavaScript; choose one of the two! -->
@@ -93,6 +126,22 @@
       $('#carouselExampleControls{{str_replace(' ', '', $profile['name'])}}').find('.carousel-item').first().addClass('active');
     });
     @endforeach
+
+    $('#quickView').on('click',function(){
+      $('#myTabContent').css("display", "block");
+      $('#Rep').css("display", "none");
+      $('#Pres').css("display", "none");
+    });
+    $('#prescriptions').on('click',function(){
+      $('#myTabContent').css("display", "none");
+      $('#Rep').css("display", "none");
+      $('#Pres').css("display", "block");
+    });
+    $('#reports').on('click',function(){
+      $('#myTabContent').css("display", "none");
+      $('#Rep').css("display", "block");
+      $('#Pres').css("display", "none");
+    });
   </script>
 </body>
 </html>
