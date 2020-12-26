@@ -106,7 +106,7 @@
   @endforeach
 </div>
  <div class="row text-center" id="Rep" style="display: none;"><h5>No Reports Available Yet</h5></div>
- <div class="row text-center" id="Pres" style="display: none;"><h5>No Prescriptions Available Yet</h5></div>
+ <div class="row text-center" id="gPres" style="display: none;"><h5>No Prescriptions Available Yet</h5></div>
  </div> 
 
   <!-- Optional JavaScript; choose one of the two! -->
@@ -130,17 +130,17 @@
     $('#quickView').on('click',function(){
       $('#myTabContent').css("display", "block");
       $('#Rep').css("display", "none");
-      $('#Pres').css("display", "none");
+      $('#gPres').css("display", "none");
     });
     $('#prescriptions').on('click',function(){
       $('#myTabContent').css("display", "none");
       $('#Rep').css("display", "none");
-      $('#Pres').css("display", "block");
+      $('#gPres').css("display", "block");
     });
     $('#reports').on('click',function(){
       $('#myTabContent').css("display", "none");
       $('#Rep').css("display", "block");
-      $('#Pres').css("display", "none");
+      $('#gPres').css("display", "none");
     });
   </script>
 </body>
