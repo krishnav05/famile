@@ -132,7 +132,7 @@
       $('#Rep').css("display", "none");
       $('#gPres').css("display", "none");
     });
-    $('#prescriptions').on('click',function(){
+    $('#prescription').on('click',function(){
       $('#myTabContent').css("display", "none");
       $('#Rep').css("display", "none");
       $('#gPres').css("display", "block");
