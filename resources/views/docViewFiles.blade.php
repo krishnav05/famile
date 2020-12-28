@@ -8,6 +8,7 @@
   <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css" integrity="sha512-+4zCK9k+qNFUR5X+cKL9EIR+ZOhtIloNl9GIKS57V1MyNsYpYcUrUeQc9vNfzsWfV28IaLL3i96P9sdNyeRssA==" crossorigin="anonymous" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.3/tiny-slider.css">
   <style type="text/css">
     .nav-tabs {
   border-bottom: 0px solid transparent;
@@ -56,6 +57,56 @@
       <button type="button" id="reports" class="btn btn-outline-secondary btn-xs custom-button">Reports</button>
     </div>
   </div>
+  <div class="my-slider">
+    <div class="slider-item" style="width: 200px;">
+      <div class="card p-2 m-2">
+  <div class="card-body">
+    <p class="card-text" style="color:#FC608C;">Blood Group</p>
+    <h5 class="card-title"> O+ve</h5>  
+  </div>
+</div>
+    </div>
+    <div class="slider-item" style="width: 200px;">
+      <div class="card  p-2 m-2">
+  <div class="card-body">
+    <p class="card-text"  style="color:#FC608C;">Blood Pressure</p>
+    <h5 class="card-title"> 90/60mmHg</h5>
+  </div>
+</div>
+    </div>
+    <div class="slider-item" style="width: 200px;">
+      <div class="card  p-2 m-2">
+  <div class="card-body">
+    <p class="card-text"  style="color:#FC608C;">Blood Glucose</p>
+    <h5 class="card-title">140 mg/dL</h5>
+  </div>
+</div>
+    </div>
+    <div class="slider-item" style="width: 200px;">
+      <div class="card p-2 m-2">
+  <div class="card-body">
+    <p class="card-text"  style="color:#FC608C;">Hemoglobin</p>
+    <h5 class="card-title">17.5 grams</h5>
+  </div>
+</div>
+    </div>
+    <div class="slider-item" style="width: 200px;">
+      <div class="card p-2 m-2">
+  <div class="card-body">
+    <p class="card-text"  style="color:#FC608C;">Pulse Rate</p>
+    <h5 class="card-title">70 bpm</h5>
+  </div>
+</div>
+    </div>
+    <div class="slider-item" style="width: 200px;">
+      <div class="card p-2 m-2">
+  <div class="card-body">
+    <p class="card-text"  style="color:#FC608C;">Temperature</p>
+    <h5 class="card-title">98.2 C</h5>
+  </div>
+    </div>
+</div>
+</div>
 <div class="tab-content" id="myTabContent">
   @foreach($profiles as $profile)
   @if ($loop->first)
@@ -109,8 +160,9 @@
  <div class="row text-center" id="gPres" style="display: none;"><h5>No Prescriptions Available Yet</h5></div>
  </div> 
 
+  
   <!-- Optional JavaScript; choose one of the two! -->
-
+  
   <!-- Option 1: Bootstrap Bundle with Popper -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
 
@@ -120,6 +172,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
   -->
   <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script>
   <script type="text/javascript">
     @foreach($profiles as $profile)
     $(document).ready(function () {
@@ -142,6 +195,17 @@
       $('#Rep').css("display", "block");
       $('#gPres').css("display", "none");
     });
+    const slider = tns({
+           container: '.my-slider',
+    loop: false,
+    items: 1,
+    slideBy: 'page',
+    nav: false,    
+    speed: 400,
+    controls: false,
+    mouseDrag: true,
+
+        });
   </script>
 </body>
 </html>
