@@ -66,51 +66,99 @@
       </div>
     </div>
     <div class="my-slider mt-3">
-      <div class="slider-item" style="width: 200px;">
+      <div class="slider-item" style="width: 250px;">
         <div class="card p-2 m-2">
           <div class="card-body">
-            <p class="card-text" style="color:#FC608C;">Blood Group</p>
-            <h5 class="card-title"> O+ve</h5>  
+            <div class="row">
+              <div class="col-3">
+                <img src="/assets/img/ic-blood-group.png">
+              </div>
+              <div class="col-9">
+                <p class="card-text" style="color:#FC608C;">Blood Group</p>
+            <h5 class="card-title"> O+ve</h5> 
+              </div>
+            </div>
+             
           </div>
         </div>
       </div>
-      <div class="slider-item" style="width: 200px;">
+      <div class="slider-item" style="width: 250px;">
         <div class="card  p-2 m-2">
           <div class="card-body">
-            <p class="card-text"  style="color:#FC608C;">Blood Pressure</p>
+            <div class="row">
+              <div class="col-3">
+                <img src="/assets/img/ic-bp.png">
+              </div>
+              <div class="col-9">
+                <p class="card-text"  style="color:#FC608C;">Blood Pressure</p>
             <h5 class="card-title"> 90/60mmHg</h5>
+              </div>
+            </div>
+            
           </div>
         </div>
       </div>
-      <div class="slider-item" style="width: 200px;">
+      <div class="slider-item" style="width: 250px;">
         <div class="card  p-2 m-2">
           <div class="card-body">
-            <p class="card-text"  style="color:#FC608C;">Blood Glucose</p>
+            <div class="row">
+              <div class="col-3">
+                <img src="/assets/img/ic-glucose.png">
+              </div>
+              <div class="col-9">
+                <p class="card-text"  style="color:#FC608C;">Blood Glucose</p>
             <h5 class="card-title">140 mg/dL</h5>
+              </div>
+            </div>
+            
           </div>
         </div>
       </div>
-      <div class="slider-item" style="width: 200px;">
+      <div class="slider-item" style="width: 250px;">
         <div class="card p-2 m-2">
           <div class="card-body">
-            <p class="card-text"  style="color:#FC608C;">Hemoglobin</p>
+            <div class="row">
+              <div class="col-3">
+                <img src="/assets/img/ic-hamo.png">
+              </div>
+              <div class="col-9">
+                <p class="card-text"  style="color:#FC608C;">Hemoglobin</p>
             <h5 class="card-title">17.5 grams</h5>
+              </div>
+            </div>
+            
           </div>
         </div>
       </div>
-      <div class="slider-item" style="width: 200px;">
+      <div class="slider-item" style="width: 250px;">
         <div class="card p-2 m-2">
           <div class="card-body">
-            <p class="card-text"  style="color:#FC608C;">Pulse Rate</p>
+            <div class="row">
+              <div class="col-3">
+                <img src="/assets/img/ic-pr.png">
+              </div>
+              <div class="col-9">
+                <p class="card-text"  style="color:#FC608C;">Pulse Rate</p>
             <h5 class="card-title">70 bpm</h5>
+              </div>
+            </div>
+            
           </div>
         </div>
       </div>
-      <div class="slider-item" style="width: 200px;">
+      <div class="slider-item" style="width: 250px;">
         <div class="card p-2 m-2">
           <div class="card-body">
-            <p class="card-text"  style="color:#FC608C;">Temperature</p>
+            <div class="row">
+              <div class="col-3"> 
+                <img src="/assets/img/ic-temp.png">
+              </div>
+              <div class="col-9">
+                <p class="card-text"  style="color:#FC608C;">Temperature</p>
             <h5 class="card-title">98.2 C</h5>
+              </div>
+            </div>
+            
           </div>
         </div>
       </div>
