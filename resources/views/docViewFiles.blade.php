@@ -163,7 +163,7 @@
         </div>
       </div>
     </div>
-    <div class="card mt-5 mb-5">
+    <div class="card mt-5 mb-5 customCard">
       <ul class="list-group list-group-flush">
         <li class="list-group-item">
           @foreach($profiles as $profile)
@@ -212,10 +212,10 @@
           </div>
           
         </li>
-        <li class="list-group-item text-center" style="background-color: #33CAFF;color: #fff;font-weight: bold;">PRESCRIPTION HISTORY</li>
+        <li class="list-group-item text-center" style="background-color: #33CAFF;color: #fff;font-weight: bold;"><a href="{{Request::url()}}/preshistory">PRESCRIPTION HISTORY</a></li>
       </ul>
     </div>
-    <div class="tab-content" id="myTabContent">
+    <div class="tab-content" id="myTabContent" style="display: none;">
       @foreach($profiles as $profile)
       @if ($loop->first)
       <div class="tab-pane active" id="{{str_replace(' ', '', $profile['name'])}}" role="tabpanel" aria-labelledby="{{str_replace(' ', '', $profile['name'])}}-tab">
@@ -289,19 +289,22 @@
     @endforeach
 
     $('#quickView').on('click',function(){
+      $('#myTabContent').css("display", "none");
+      $('#Rep').css("display", "none");
+      $('#gPres').css("display", "none");
+      $('.customCard').css("display", "block");
+    });
+    $('#prescription').on('click',function(){
+      $('.customCard').css("display", "none");
       $('#myTabContent').css("display", "block");
       $('#Rep').css("display", "none");
       $('#gPres').css("display", "none");
-    });
-    $('#prescription').on('click',function(){
-      $('#myTabContent').css("display", "none");
-      $('#Rep').css("display", "none");
-      $('#gPres').css("display", "block");
     });
     $('#reports').on('click',function(){
       $('#myTabContent').css("display", "none");
       $('#Rep').css("display", "block");
       $('#gPres').css("display", "none");
+      $('.customCard').css("display", "none");
     });
     const slider = tns({
      container: '.my-slider',

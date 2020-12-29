@@ -39,3 +39,18 @@ Route::get('/docview/{id}/{subid}/{sharecode}', function ($id,$subid,$sharecode)
 		return view('docsPageExpired');
 	}
 });
+
+Route::get('/docview/{id}/{subid}/{sharecode}/preshistory',function($id,$subid,$sharecode){
+	$user = User::where('id',$id)->where('sharecode',$sharecode)->first();
+
+	if($user)
+	{	
+		$profiles = Profile::where('user_id',$id)->where('id',$subid)->get();
+		$documents = Documents::get();
+		return view('prescriptionHistory');
+	}
+	else
+	{
+		return view('docsPageExpired');
+	}
+});
