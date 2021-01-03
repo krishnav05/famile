@@ -13,7 +13,7 @@
   </head>
   <body>
     <div class="container" style="background-color: #FFEEF3;">
-      <div class="row">
+      <div class="row mt-3">
         <div class="col-3">
           <i class="fas fa-arrow-left fa-2x" onclick="window.history.back();" style="color: #FC608C;"></i>
         </div>

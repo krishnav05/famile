@@ -38,7 +38,7 @@
   <title>Famile</title>
 </head>
 <body>
-  <div class="container">
+  <div class="container" style="background-color: #FFEEF3;">
     <div class="row align-items-center">
       <div class="col-4">
         <ul class="nav nav-tabs nav-justified" id="myTab" role="tablist">
@@ -74,8 +74,8 @@
                 <img src="/assets/img/ic-blood-group.png">
               </div>
               <div class="col-9">
-                <p class="card-text" style="color:#FC608C;">Blood Group</p>
-            <h5 class="card-title"> O+ve</h5> 
+                <p class="card-text" style="color:#FC608C;float: right;">Blood Group</p>
+            <h5 class="card-title" style="float: right;"> O+ve</h5> 
               </div>
             </div>
              
@@ -90,8 +90,8 @@
                 <img src="/assets/img/ic-bp.png">
               </div>
               <div class="col-9">
-                <p class="card-text"  style="color:#FC608C;">Blood Pressure</p>
-            <h5 class="card-title"> 90/60mmHg</h5>
+                <p class="card-text"  style="color:#FC608C;float: right;">Blood Pressure</p>
+            <h5 class="card-title" style="float: right;"> 90/60mmHg</h5>
               </div>
             </div>
             
@@ -106,8 +106,8 @@
                 <img src="/assets/img/ic-glucose.png">
               </div>
               <div class="col-9">
-                <p class="card-text"  style="color:#FC608C;">Blood Glucose</p>
-            <h5 class="card-title">140 mg/dL</h5>
+                <p class="card-text"  style="color:#FC608C;float: right;">Blood Glucose</p>
+            <h5 class="card-title" style="float: right;">140 mg/dL</h5>
               </div>
             </div>
             
@@ -122,8 +122,8 @@
                 <img src="/assets/img/ic-hamo.png">
               </div>
               <div class="col-9">
-                <p class="card-text"  style="color:#FC608C;">Hemoglobin</p>
-            <h5 class="card-title">17.5 grams</h5>
+                <p class="card-text"  style="color:#FC608C;float: right;">Hemoglobin</p>
+            <h5 class="card-title" style="float: right;">17.5 grams</h5>
               </div>
             </div>
             
@@ -138,8 +138,8 @@
                 <img src="/assets/img/ic-pr.png">
               </div>
               <div class="col-9">
-                <p class="card-text"  style="color:#FC608C;">Pulse Rate</p>
-            <h5 class="card-title">70 bpm</h5>
+                <p class="card-text"  style="color:#FC608C;float: right;">Pulse Rate</p>
+            <h5 class="card-title" style="float: right;">70 bpm</h5>
               </div>
             </div>
             
@@ -154,8 +154,8 @@
                 <img src="/assets/img/ic-temp.png">
               </div>
               <div class="col-9">
-                <p class="card-text"  style="color:#FC608C;">Temperature</p>
-            <h5 class="card-title">98.2 C</h5>
+                <p class="card-text"  style="color:#FC608C;float: right;">Temperature</p>
+            <h5 class="card-title" style="float: right;">98.2 C</h5>
               </div>
             </div>
             
