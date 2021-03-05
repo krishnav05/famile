@@ -50,6 +50,35 @@ Route::group(['prefix' => 'v1'], function () {
 
   
   file_put_contents('prescriptions/'.$id.'/'.$name,$realImage);
+
+  $firebaseToken = User::where('id',$_POST['userId'])->pluck('ftoken')->all();
+          
+        $SERVER_API_KEY = 'AAAAnUKQWgE:APA91bHXecUqSJKOkk-uqGd4aKEWqj-uiOQrj-LgHXjL7oMc9QmRweUpKOxRXenUIcSWCFMRUK24aVvVyj-5nKrG-xAeDBNg2ZgURruk-g5576qkuHg-wE0-t8AA5tCEOvRlBgzp6JmQ';
+  
+        $data = [
+            "registration_ids" => $firebaseToken,
+            "notification" => [
+                "title" => "Successfull",
+                "body" => "Medical record added successfully",  
+            ]
+        ];
+        $dataString = json_encode($data);
+    
+        $headers = [
+            'Authorization: key=' . $SERVER_API_KEY,
+            'Content-Type: application/json',
+        ];
+    
+        $ch = curl_init();
+      
+        curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
+               
+        $response = curl_exec($ch);
   // echo "OK";
   return response()
             ->json(['status'=>'success']);
@@ -86,6 +115,35 @@ Route::group(['prefix' => 'v1'], function () {
 
     	}
     	GroupDocument::where('id',$futureupdate)->update(['total_docs'=>$file]);
+        $firebaseToken = User::where('id',$userid)->pluck('ftoken')->all();
+          
+        $SERVER_API_KEY = 'AAAAnUKQWgE:APA91bHXecUqSJKOkk-uqGd4aKEWqj-uiOQrj-LgHXjL7oMc9QmRweUpKOxRXenUIcSWCFMRUK24aVvVyj-5nKrG-xAeDBNg2ZgURruk-g5576qkuHg-wE0-t8AA5tCEOvRlBgzp6JmQ';
+  
+        $data = [
+            "registration_ids" => $firebaseToken,
+            "notification" => [
+                "title" => "Successfull",
+                "body" => "Medical record added successfully",  
+            ]
+        ];
+        $dataString = json_encode($data);
+    
+        $headers = [
+            'Authorization: key=' . $SERVER_API_KEY,
+            'Content-Type: application/json',
+        ];
+    
+        $ch = curl_init();
+      
+        curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
+               
+        $response = curl_exec($ch);
+        
     	return response()
     	->json(['status'=>'OK']);
     });
@@ -209,7 +267,36 @@ return response()
 
         if($user)
         {	
-            	User::where('phone',$_POST['phone'])->update(['otp'=>null]);
+            	User::where('phone',$_POST['phone'])->update(['otp'=>null,'ftoken'=>$_POST['token']]);
+
+                $firebaseToken = User::where('phone',$_POST['phone'])->pluck('ftoken')->all();
+          
+        $SERVER_API_KEY = 'AAAAnUKQWgE:APA91bHXecUqSJKOkk-uqGd4aKEWqj-uiOQrj-LgHXjL7oMc9QmRweUpKOxRXenUIcSWCFMRUK24aVvVyj-5nKrG-xAeDBNg2ZgURruk-g5576qkuHg-wE0-t8AA5tCEOvRlBgzp6JmQ';
+  
+        $data = [
+            "registration_ids" => $firebaseToken,
+            "notification" => [
+                "title" => "Welcome",
+                "body" => "Manage your medical records and keep track of health",  
+            ]
+        ];
+        $dataString = json_encode($data);
+    
+        $headers = [
+            'Authorization: key=' . $SERVER_API_KEY,
+            'Content-Type: application/json',
+        ];
+    
+        $ch = curl_init();
+      
+        curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
+               
+        $response = curl_exec($ch);
             	return response()->json(['status'=>'success','user'=>$user->id]);
           } 
           return Response::json([
@@ -230,6 +317,35 @@ return response()
 
         $path = public_path().'/prescriptions/' . $new->id;
 File::makeDirectory($path, $mode = 0777, true, true);
+
+        $firebaseToken = User::where('id',$_POST['profileid'])->pluck('ftoken')->all();
+          
+        $SERVER_API_KEY = 'AAAAnUKQWgE:APA91bHXecUqSJKOkk-uqGd4aKEWqj-uiOQrj-LgHXjL7oMc9QmRweUpKOxRXenUIcSWCFMRUK24aVvVyj-5nKrG-xAeDBNg2ZgURruk-g5576qkuHg-wE0-t8AA5tCEOvRlBgzp6JmQ';
+  
+        $data = [
+            "registration_ids" => $firebaseToken,
+            "notification" => [
+                "title" => "New Profile Added",
+                "body" => "Now you can add medical records for the profile created",  
+            ]
+        ];
+        $dataString = json_encode($data);
+    
+        $headers = [
+            'Authorization: key=' . $SERVER_API_KEY,
+            'Content-Type: application/json',
+        ];
+    
+        $ch = curl_init();
+      
+        curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
+               
+        $response = curl_exec($ch);
 
         return response()->json(['status'=>'success']);
     });
