@@ -6,6 +6,7 @@ use App\Profile;
 use App\GroupDocument;
 use App\Documents;
 use App\User;
+use DB;
 /*
 |--------------------------------------------------------------------------
 | API Routes
