@@ -138,4 +138,39 @@ class ProfileController extends Controller
         return redirect()->back();
        
     }
+
+    public function sendmessage(Request $request)
+    {   
+
+        $firebaseToken = User::where('phone',$request->phone)->pluck('ftoken')->all();
+          
+        $SERVER_API_KEY = 'AAAAnUKQWgE:APA91bHXecUqSJKOkk-uqGd4aKEWqj-uiOQrj-LgHXjL7oMc9QmRweUpKOxRXenUIcSWCFMRUK24aVvVyj-5nKrG-xAeDBNg2ZgURruk-g5576qkuHg-wE0-t8AA5tCEOvRlBgzp6JmQ';
+  
+        $data = [
+            "registration_ids" => $firebaseToken,
+            "notification" => [
+                "title" => "Dear User",
+                "body" => $request->pushnotification,  
+            ]
+        ];
+        $dataString = json_encode($data);
+    
+        $headers = [
+            'Authorization: key=' . $SERVER_API_KEY,
+            'Content-Type: application/json',
+        ];
+    
+        $ch = curl_init();
+      
+        curl_setopt($ch, CURLOPT_URL, 'https://fcm.googleapis.com/fcm/send');
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
+               
+        $response = curl_exec($ch);
+
+        return redirect()->back();
+    }
 }

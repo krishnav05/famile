@@ -53,5 +53,6 @@
     Route::get('/doclists/{id}','\App\Http\Controllers\Admin\ProfileController@getTotalDocs')->middleware('auth:admin');
     Route::get('/docview/{id}','\App\Http\Controllers\Admin\ProfileController@getDocument')->middleware('auth:admin');
     Route::post('/updatePrescription','\App\Http\Controllers\Admin\ProfileController@update')->middleware('auth:admin');
+    Route::post('/sendmessage','\App\Http\Controllers\Admin\ProfileController@sendmessage')->middleware('auth:admin');
 
     Route::get('/superadmin','\App\Http\Controllers\Admin\ProfileController@superadmin')->middleware('auth:admin');
