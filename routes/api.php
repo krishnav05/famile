@@ -434,6 +434,15 @@ File::makeDirectory($path, $mode = 0777, true, true);
         return  response()->json($image_links);
     });
 
+    Route::post('getprofilechartdata',function(){
+     $data = Documents::select(DB::raw("(COUNT(*)) as count"),DB::raw("MONTHNAME(created_at) as monthname"))
+->where('profile_id',$_POST['profile_id'])
+->groupBy('monthname')
+->get();
+
+    return response()->json($data);
+    });
+
     Route::post('setlocation',function(){
         User::where('id',$_POST['profileid'])->update(['location'=>$_POST['location']]);
 
