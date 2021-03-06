@@ -96,6 +96,14 @@
       <td style="background-color:#E0FFFF;">Follow Up Date</td>
       <td><input type="date" name="fdate" value="{{$detail['follow_up_date']}}"></td>
     </tr>
+    <tr>
+      <td style="background-color:#E0FFFF;">Suggestion</td>
+      <td><input type="text" name="suggestion" value="{{$detail['suggestion']}}"></td>
+    </tr>
+    <tr>
+      <td style="background-color:#E0FFFF;">Health Tip</td>
+      <td><input type="text" name="tip" value="{{$detail['healthtip']}}"></td>
+    </tr>
     @endforeach
     @else
     <tr>
@@ -149,6 +157,14 @@
     <tr>
       <td style="background-color:#E0FFFF;">Follow Up Date</td>
       <td><input type="date" name="fdate"></td>
+    </tr>
+    <tr>
+      <td style="background-color:#E0FFFF;">Suggestion</td>
+      <td><input type="text" name="suggestion"></td>
+    </tr>
+    <tr>
+      <td style="background-color:#E0FFFF;">Health Tip</td>
+      <td><input type="text" name="tip"></td>
     </tr>
     <tr>
       <td scope="col" style="color: #000000;background-color: #55F2CD;border-collapse: collapse;border: 0px;">Prescribed Medicines</td>

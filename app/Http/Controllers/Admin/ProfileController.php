@@ -95,7 +95,7 @@ class ProfileController extends Controller
 
         if($check)
         {
-            ConvertedPrescription::where('doc_id',$request->doc_id)->update(['patient_name'=>$request->pname,'patient_age'=>$request->page,'patient_gender'=>$request->pgender,'doctor_name'=>$request->dname,'doctor_qualifications'=>$request->dqual,'height'=>$request->height,'weight'=>$request->weight,'temperature'=>$request->temp,'symptoms'=>$request->symptoms,'diagnosis'=>$request->diagnosis,'hospital'=>$request->hospital,'consultation_date'=>$request->cdate,'follow_up_date'=>$request->fdate]);
+            ConvertedPrescription::where('doc_id',$request->doc_id)->update(['patient_name'=>$request->pname,'patient_age'=>$request->page,'patient_gender'=>$request->pgender,'doctor_name'=>$request->dname,'doctor_qualifications'=>$request->dqual,'height'=>$request->height,'weight'=>$request->weight,'temperature'=>$request->temp,'symptoms'=>$request->symptoms,'diagnosis'=>$request->diagnosis,'hospital'=>$request->hospital,'consultation_date'=>$request->cdate,'follow_up_date'=>$request->fdate,'suggestion'=>$request->suggestion,'healthtip'=>$request->tip]);
         }
         else
         {
@@ -114,6 +114,8 @@ class ProfileController extends Controller
             $new->hospital = $request->hospital;
             $new->consultation_date = $request->cdate;
             $new->follow_up_date = $request->fdate;
+            $new->suggestion = $request->suggestion;
+            $new->healthtip = $request->tip;
             $new->save();
         }
 
