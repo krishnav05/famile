@@ -6,6 +6,7 @@ use App\Profile;
 use App\GroupDocument;
 use App\Documents;
 use App\User;
+use App\ConvertedPrescription;
 use DB;
 /*
 |--------------------------------------------------------------------------
@@ -437,6 +438,14 @@ File::makeDirectory($path, $mode = 0777, true, true);
 
     Route::post('getprofilechartdata',function(Request $request){
      $data = Documents::where('profile_id',$request->profile_id)->select(DB::raw("(COUNT(*)) as count"),DB::raw("MONTHNAME(created_at) as monthname"))
+->groupBy('monthname')
+->get();
+
+    return response()->json($data);
+    });
+
+    Route::get('getfake',function(Request $request){
+     $data = ConvertedPrescription::where('id','111')->select(DB::raw("(COUNT(*)) as count"),DB::raw("MONTHNAME(consultation_date) as monthname"))
 ->groupBy('monthname')
 ->get();
 
