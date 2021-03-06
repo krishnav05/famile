@@ -435,8 +435,8 @@ File::makeDirectory($path, $mode = 0777, true, true);
         return  response()->json($image_links);
     });
 
-    Route::post('getprofilechartdata',function(){
-     $data = Documents::where('profile_id','6')->select(DB::raw("(COUNT(*)) as count"),DB::raw("MONTHNAME(created_at) as monthname"))
+    Route::post('getprofilechartdata',function(Request $request){
+     $data = Documents::where('profile_id',$request->profile_id)->select(DB::raw("(COUNT(*)) as count"),DB::raw("MONTHNAME(created_at) as monthname"))
 ->groupBy('monthname')
 ->get();
 
