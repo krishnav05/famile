@@ -23,6 +23,7 @@
       <th scope="row">{{$loop->iteration}}</th>
       <td>{{$user['phone']}}</td>
       <form method="post" action="/admin/sendmessage">
+        @csrf
         <input type="hidden" value="{{$user['phone']}}" name="phone">
       <td><input type="text" name="pushnotification"></td>
       <td><button type="submit" class="btn btn-outline-dark">Send</button></td>  
