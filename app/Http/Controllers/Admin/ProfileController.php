@@ -92,15 +92,17 @@ class ProfileController extends Controller
     public function update(Request $request)
     {   
         $check = ConvertedPrescription::where('doc_id',$request->doc_id)->first();
+        $profile_id_value = Documents::where('id',$request->doc_id)->value('profile_id');
 
         if($check)
         {
-            ConvertedPrescription::where('doc_id',$request->doc_id)->update(['patient_name'=>$request->pname,'patient_age'=>$request->page,'patient_gender'=>$request->pgender,'doctor_name'=>$request->dname,'doctor_qualifications'=>$request->dqual,'height'=>$request->height,'weight'=>$request->weight,'temperature'=>$request->temp,'symptoms'=>$request->symptoms,'diagnosis'=>$request->diagnosis,'hospital'=>$request->hospital,'consultation_date'=>$request->cdate,'follow_up_date'=>$request->fdate,'suggestion'=>$request->suggestion,'healthtip'=>$request->tip]);
+            ConvertedPrescription::where('doc_id',$request->doc_id)->update(['patient_name'=>$request->pname,'profile_id'=>$profile_id_value,'patient_age'=>$request->page,'patient_gender'=>$request->pgender,'doctor_name'=>$request->dname,'doctor_qualifications'=>$request->dqual,'height'=>$request->height,'weight'=>$request->weight,'temperature'=>$request->temp,'symptoms'=>$request->symptoms,'diagnosis'=>$request->diagnosis,'hospital'=>$request->hospital,'consultation_date'=>$request->cdate,'follow_up_date'=>$request->fdate,'suggestion'=>$request->suggestion,'healthtip'=>$request->tip]);
         }
         else
         {
             $new = new ConvertedPrescription;
             $new->doc_id = $request->doc_id;
+            $new->profile_id = $request->profile_id_value;
             $new->patient_name = $request->pname;
             $new->patient_age = $request->page;
             $new->patient_gender = $request->pgender;

@@ -444,14 +444,6 @@ File::makeDirectory($path, $mode = 0777, true, true);
     return response()->json($data);
     });
 
-    Route::post('getfake',function(Request $request){
-     $data = ConvertedPrescription::where('id','3')->select(DB::raw("(COUNT(*)) as count"),DB::raw("MONTHNAME(consultation_date) as monthname"))
-->groupBy('monthname')
-->get();
-
-    return response()->json($data);
-    });
-
     Route::post('setlocation',function(){
         User::where('id',$_POST['profileid'])->update(['location'=>$_POST['location']]);
 
