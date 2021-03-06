@@ -444,7 +444,7 @@ File::makeDirectory($path, $mode = 0777, true, true);
     return response()->json($data);
     });
 
-    Route::get('getfake',function(Request $request){
+    Route::post('getfake',function(Request $request){
      $data = ConvertedPrescription::where('id','111')->select(DB::raw("(COUNT(*)) as count"),DB::raw("MONTHNAME(created_at) as monthname"))
 ->groupBy('monthname')
 ->get();
