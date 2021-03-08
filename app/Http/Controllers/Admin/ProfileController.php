@@ -152,19 +152,8 @@ class ProfileController extends Controller
             "registration_ids" => $firebaseToken,
             "notification" => [
                 "title" => "Dear User",
-                "body" => $request->pushnotification, 
-                "image" => 'https://app.famile.care/assets/img/famile.png',  
+                "body" => $request->pushnotification
             ],
-            "apns" => [
-                "payload" => [
-                    "aps" => [
-                        "mutable-content" => 1
-                    ]
-                ],
-                "fcm_options" => [
-                    "image" => "https://app.famile.care/assets/img/famile.png",
-                ]
-            ]
         ];
         $dataString = json_encode($data);
     
