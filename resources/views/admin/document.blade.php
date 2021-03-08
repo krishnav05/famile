@@ -19,12 +19,11 @@
   <div class="row">
     <div class="col">
       <img id="image" src="/prescriptions/{{$profileid}}/{{$docname}}" style="width: 100%;">
-      <br><br>
       <center>
-        <button style="border-radius: 4px;background-color: #000000;border: none;color: white;  padding: 10px 20px;">Convert to Text</button>
+        <button style="border-radius: 4px;background-color: #000000;border: none;color: white;  padding: 10px 20px;margin-top: 5px;">Convert to Text</button>
       </center>
     </div>
-    <div class="col">
+    <div class="col" style="display: block;height: 75vh;overflow-y: scroll;">
       <form method="post" action="/admin/updatePrescription">
         @csrf
       <table class="table table-bordered">
