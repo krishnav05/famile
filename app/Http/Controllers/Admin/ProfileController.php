@@ -158,7 +158,7 @@ class ProfileController extends Controller
             "apns" => [
                 "payload" => [
                     "aps" => [
-                        "mutable-content" : 1
+                        "mutable-content" => 1
                     ]
                 ],
                 "fcm_options" => [
