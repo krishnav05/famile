@@ -61,7 +61,8 @@ Route::group(['prefix' => 'v1'], function () {
             "registration_ids" => $firebaseToken,
             "notification" => [
                 "title" => "Successfull",
-                "body" => "Medical record added successfully",  
+                "body" => "Medical record added successfully",
+                "image" => 'https://app.famile.care/assets/img/famile.png'   
             ]
         ];
         $dataString = json_encode($data);
@@ -125,7 +126,8 @@ Route::group(['prefix' => 'v1'], function () {
             "registration_ids" => $firebaseToken,
             "notification" => [
                 "title" => "Successfull",
-                "body" => "Medical record added successfully",  
+                "body" => "Medical record added successfully",
+                "image" => 'https://app.famile.care/assets/img/famile.png'   
             ]
         ];
         $dataString = json_encode($data);
@@ -279,7 +281,8 @@ return response()
             "registration_ids" => $firebaseToken,
             "notification" => [
                 "title" => "Welcome",
-                "body" => "Manage your medical records and keep track of health",  
+                "body" => "Manage your medical records and keep track of health",
+                "image" => 'https://app.famile.care/assets/img/famile.png'  
             ]
         ];
         $dataString = json_encode($data);
@@ -328,7 +331,8 @@ File::makeDirectory($path, $mode = 0777, true, true);
             "registration_ids" => $firebaseToken,
             "notification" => [
                 "title" => "New Profile Added",
-                "body" => "Now you can add medical records for the profile created",  
+                "body" => "Now you can add medical records for the profile created", 
+                "image" => 'https://app.famile.care/assets/img/famile.png'  
             ]
         ];
         $dataString = json_encode($data);
