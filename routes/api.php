@@ -445,7 +445,7 @@ File::makeDirectory($path, $mode = 0777, true, true);
     });
 
     Route::post('getprofilechartdatadetail',function(Request $request){
-     $data = ConvertedPrescription::where('profile_id',$request->profile_id)->select(DB::raw("*"),DB::raw("MONTHNAME(consultation_date) as monthname"))->whereYear('consultation_date', $request->year)
+     $data = ConvertedPrescription::where('profile_id',$request->profile_id)->select(DB::raw("(select(*)) as count"),DB::raw("MONTHNAME(consultation_date) as monthname"))->whereYear('consultation_date', $request->year)
 ->groupBy('monthname')
 ->get();
 
