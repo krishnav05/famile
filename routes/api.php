@@ -444,12 +444,6 @@ File::makeDirectory($path, $mode = 0777, true, true);
     return response()->json($data);
     });
 
-    Route::post('getprofilechartdatadetail',function(Request $request){
-     $data = ConvertedPrescription::where('profile_id',$request->profile_id)->whereYear('consultation_date', $request->year)->get();
-
-    return response()->json($data);
-    });
-
     Route::post('setlocation',function(){
         User::where('id',$_POST['profileid'])->update(['location'=>$_POST['location']]);
 
