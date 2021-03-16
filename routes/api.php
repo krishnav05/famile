@@ -449,6 +449,7 @@ File::makeDirectory($path, $mode = 0777, true, true);
      $data = ConvertedPrescription::where('profile_id',$request->profile_id)->whereYear('consultation_date', $request->year)->get();
 
      foreach ($data as $key) {
+        $pres_data = array();
          $pres_data = ConvertedPrescriptionMed::where('doc_id',$key['id'])->get();
          $key->medicine_data = $pres_data;
      }
