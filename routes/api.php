@@ -451,7 +451,10 @@ File::makeDirectory($path, $mode = 0777, true, true);
      foreach ($data as $key=>$value) {
 
          $pres_data = ConvertedPrescriptionMed::where('doc_id',$key->id)->first();
-         $key->medicine_details = $key['id'];
+         $if($key=='id')
+         {
+         $key->medicine_details = $value;            
+         }
      }
 
     return response()->json($data);
