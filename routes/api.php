@@ -8,6 +8,7 @@ use App\Documents;
 use App\User;
 use App\ConvertedPrescription;
 use DB;
+use App\ConvertedPrescriptionMed;
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -446,6 +447,11 @@ File::makeDirectory($path, $mode = 0777, true, true);
 
      Route::post('getprofilechartdatadetail',function(Request $request){
      $data = ConvertedPrescription::where('profile_id',$request->profile_id)->whereYear('consultation_date', $request->year)->get();
+
+     foreach ($data as $key) {
+         $pres_data = ConvertedPrescriptionMed::where('doc_id',$key->id)->get();
+         $key->medicine_details = $pres_data;
+     }
 
     return response()->json($data);
     });
