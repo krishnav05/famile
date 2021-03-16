@@ -448,9 +448,10 @@ File::makeDirectory($path, $mode = 0777, true, true);
      Route::post('getprofilechartdatadetail',function(Request $request){
      $data = ConvertedPrescription::where('profile_id',$request->profile_id)->whereYear('consultation_date', $request->year)->get();
 
-     foreach ($data as $key) {
+     foreach ($data as $key=>$value) {
+
          $pres_data = ConvertedPrescriptionMed::where('doc_id',$key->id)->first();
-         $key->medicine_details = $pres_data;
+         $key->medicine_details = $key->id;
      }
 
     return response()->json($data);
