@@ -7,7 +7,6 @@ use App\GroupDocument;
 use App\Documents;
 use App\User;
 use App\ConvertedPrescription;
-use DB;
 use App\ConvertedPrescriptionMed;
 /*
 |--------------------------------------------------------------------------
