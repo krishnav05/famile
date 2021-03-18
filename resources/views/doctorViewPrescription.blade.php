@@ -160,10 +160,11 @@
 
             @foreach($documents as $document)
             @if($document['profile_id'] == $profile['id'])
-
+            @if ($loop->first)
             <div class="carousel-item active">
                 <img class="d-block w-100" src="/prescriptions/{{$profile['id']}}/{{$document['document']}}" alt="Third slide">
             </div>
+            @endif
             @endif
             @endforeach
 
@@ -171,10 +172,14 @@
 
             @foreach($documents as $document)
             @if($document['profile_id'] == $profile['id'])
+            @if ($loop->first)
+            @else
+            
             
             <div class="carousel-item">
                 <img class="d-block w-100" src="/prescriptions/{{$profile['id']}}/{{$document['document']}}" alt="Second slide">
             </div>
+            @endif
             @endif
             @endforeach
 
