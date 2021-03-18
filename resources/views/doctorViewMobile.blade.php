@@ -36,10 +36,10 @@
         <span>{{$profile['name']}}</span>
         @endif
         @endforeach
-        <a href="../dashboard"> <button style="border-color:#FF4176;border:1px solid #FF4176;color: #FF4176;margin-left: 7%;">Quick
+        <a href="./dashboard"> <button style="border-color:#FF4176;border:1px solid #FF4176;color: #FF4176;margin-left: 7%;">Quick
         View</button></a>
-        <a href="../prescriptions"> <button>Prescription</button></a>
-        <a href="../reports"><button>Reports</button></a>
+        <a href="./prescriptions"> <button>Prescription</button></a>
+        <a href="./reports"><button>Reports</button></a>
     </div>
 
 
