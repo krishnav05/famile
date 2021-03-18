@@ -33,7 +33,7 @@
 
 
     <div class="tabs">
-        <img id="avt" src="assets/img_avatar.png" alt="Avatar">
+        <img id="avt" src="/assets/img_avatar.png" alt="Avatar">
         @foreach($profiles as $profile)
         @if ($loop->first)
         <span>{{$profile['name']}}</span>
@@ -54,7 +54,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-3">
-                                <img style="width: 75%;" src="assets/ic-bg.svg">
+                                <img style="width: 75%;" src="/assets/ic-bg.svg">
                             </div>
                             <div class="col-9">
                                 <p class="card-text" style="color:#FF4176;float: left;">Blood Group</p>
@@ -70,7 +70,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-3">
-                                <img style="width: 75%;" src="assets/ic-bp.svg">
+                                <img style="width: 75%;" src="/assets/ic-bp.svg">
                             </div>
                             <div class="col-9">
                                 <p class="card-text" style="color:#FF4176;float: left;">Blood Pressure</p>
@@ -86,7 +86,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-3">
-                                <img style="width: 75%;" src="assets/ic-glucose.svg">
+                                <img style="width: 75%;" src="/assets/ic-glucose.svg">
                             </div>
                             <div class="col-9">
                                 <p class="card-text" style="color:#FF4176;float: left;">Blood Glucose</p>
@@ -102,7 +102,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-3">
-                                <img style="width: 75%;" src="assets/ic-hamo.svg">
+                                <img style="width: 75%;" src="/assets/ic-hamo.svg">
                             </div>
                             <div class="col-9">
                                 <p class="card-text" style="color:#FF4176;float: left;">Hemoglobin</p>
@@ -118,7 +118,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-3">
-                                <img style="width: 75%;" src="assets/ic-pr.svg">
+                                <img style="width: 75%;" src="/assets/ic-pr.svg">
                             </div>
                             <div class="col-9">
                                 <p class="card-text" style="color:#FF4176;float: left;">Pulse Rate</p>
@@ -134,7 +134,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-3">
-                                <img style="width: 75%;" src="assets/ic-temp.svg">
+                                <img style="width: 75%;" src="/assets/ic-temp.svg">
                             </div>
                             <div class="col-9">
                                 <p class="card-text" style="color:#FF4176;float: left;">Temperature</p>

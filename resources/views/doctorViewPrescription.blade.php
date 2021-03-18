@@ -35,7 +35,7 @@
 
 
     <div class="tabs">
-        <img id="avt" src="assets/img_avatar.png" alt="Avatar">
+        <img id="avt" src="/assets/img_avatar.png" alt="Avatar">
         @foreach($profiles as $profile)
         @if ($loop->first)
         <span>{{$profile['name']}}</span>
@@ -56,7 +56,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-3">
-                                <img style="width: 75%;" src="assets/ic-bg.svg">
+                                <img style="width: 75%;" src="/assets/ic-bg.svg">
                             </div>
                             <div class="col-9">
                                 <p class="card-text" >Blood Group</p>
@@ -72,7 +72,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-3">
-                                <img style="width: 75%;" src="assets/ic-bp.svg">
+                                <img style="width: 75%;" src="/assets/ic-bp.svg">
                             </div>
                             <div class="col-9">
                                 <p class="card-text">Blood Pressure</p>
@@ -88,7 +88,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-3">
-                                <img style="width: 75%;" src="assets/ic-glucose.svg">
+                                <img style="width: 75%;" src="/assets/ic-glucose.svg">
                             </div>
                             <div class="col-9">
                                 <p class="card-text" >Blood Glucose</p>
@@ -104,7 +104,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-3">
-                                <img style="width: 75%;" src="assets/ic-hamo.svg">
+                                <img style="width: 75%;" src="/assets/ic-hamo.svg">
                             </div>
                             <div class="col-9">
                                 <p class="card-text" >Hemoglobin</p>
@@ -120,7 +120,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-3">
-                                <img style="width: 75%;" src="assets/ic-pr.svg">
+                                <img style="width: 75%;" src="/assets/ic-pr.svg">
                             </div>
                             <div class="col-9">
                                 <p class="card-text" >Pulse Rate</p>
@@ -136,7 +136,7 @@
                     <div class="card-body">
                         <div class="row">
                             <div class="col-3">
-                                <img style="width: 75%;" src="assets/ic-temp.svg">
+                                <img style="width: 75%;" src="/assets/ic-temp.svg">
                             </div>
                             <div class="col-9">
                                 <p class="card-text" >Temperature</p>
@@ -155,14 +155,6 @@
     <div class="container">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
-
-              <div class="carousel-item active">
-                <img class="d-block w-100" src="assets/Prescription-3.png" alt="Third slide">
-            </div>
-            <div class="carousel-item">
-                <img class="d-block w-100" src="assets/Prescription-1.png" alt="Second slide">
-            </div>
-
             @foreach($profiles as $profile)
             @if ($loop->first)
 
