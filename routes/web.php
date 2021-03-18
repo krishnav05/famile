@@ -5,6 +5,8 @@ use App\User;
 use App\Profile;
 use App\GroupDocument;
 use App\Documents;
+use App\ConvertedPrescription;
+use App\ConvertedPrescriptionMed;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -90,9 +92,10 @@ Route::get('/docview/{id}/{subid}/{sharecode}/preshistory',function($id,$subid,$
 
 	if($user)
 	{	
-		$profiles = Profile::where('user_id',$id)->where('id',$subid)->get();
-		$documents = Documents::get();
-		return view('doctorViewHistory');
+		$docs = ConvertedPrescription::where('profile_id',$subid)->get();
+		$meds = ConvertedPrescriptionMed::all();
+		
+		return view('doctorViewHistory',['docs'=>$docs,'meds'=>$meds]);
 	}
 	else
 	{
