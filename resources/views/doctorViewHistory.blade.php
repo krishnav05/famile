@@ -51,7 +51,7 @@
             <span style="opacity: 0.5;" ;> Speciality :</span>{{$doc['doctor_qualifications']}}<br>
             <span style="opacity: 0.5;" ;> Dignosis :</span> {{$doc['diagnosis']}}
         </div>
-        
+
         <table class="table">
             <thead>
                 <tr>
@@ -74,7 +74,7 @@
                 @endforeach
             </tbody>
         </table>
-        
+
     </div>
 
 </div>
@@ -126,6 +126,7 @@ data-bs-parent="#accordionExample">
 </div>
 
 <br>
+@endif
 @endforeach
 </div>
 
