@@ -1,0 +1,108 @@
+body
+{
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat'!important;
+    font-weight: 600 !important;
+
+}
+
+.head
+{
+    background-color: #FF4176;padding-left: 5%;padding-top: 10%;padding-bottom: 4%;vertical-align:middle ;font-weight: 600;
+}
+.tabs
+{
+    margin-top: 5%;margin-left: 5%; vertical-align: middle;
+
+}    
+.tabs button
+{
+    background-color: #ffffff;font-weight: 600;font-size: 0.6rem;border-radius: 4px;border-color: #B5B3B4;border:1px solid #B5B3B4;color: #B5B3B4;margin-left: 2%;"
+}
+.cards
+{
+    margin-left: 5%;padding: 0%;margin-top: 5%;
+}
+.cards div
+{
+    padding: 0px;
+    margin: 0px;
+}
+.my-slider mt-3
+{
+    padding: 0px;
+    margin: 0px;
+    display: inline;
+}
+.slider-item
+{
+    padding: 0px;
+    margin-left: 5%;
+    
+}
+
+.dropdown
+{
+    display: inline;
+    background-color: #ffffff !important;
+    float: right;
+    margin-right: 5%;
+}
+#visit
+{
+    padding-top:14px ;
+    padding-bottom: 14px;
+    background-color: #33CAFF;
+    color: #ffffff;
+    font-weight: 500;
+    font-size: 1rem;
+    border: 0px;
+    border-radius: 10px;
+    width: 85%;
+    text-align: center;
+    margin-left: 8%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+
+}
+#avt
+{
+    
+        vertical-align: middle;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        margin-right: 10px;
+     
+}
+.accordion-button:not(.collapsed)
+{
+    color: #010711 !important;
+    background-color: #ffffff !important;
+}
+
+.accordion-button:focus {
+    z-index: 3;
+    border-color:#ffffff !important;
+    box-shadow: 0 0 0 0 !important;
+}
+th
+{
+    font-weight: 400;
+}
+#carouselExampleControls
+{
+    width: 100%;
+    align-items: center;
+}
+.card-text
+{
+    color:#FF4176;
+    float: left;
+}
+
+.accordion-button
+{
+    line-height: 1.5rem !important;
+}

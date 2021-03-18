@@ -25,14 +25,59 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 //show documents to doctor url
-Route::get('/docview/{id}/{subid}/{sharecode}', function ($id,$subid,$sharecode) {
+// Route::get('/docview/{id}/{subid}/{sharecode}', function ($id,$subid,$sharecode) {
+// 	$user = User::where('id',$id)->where('sharecode',$sharecode)->first();
+
+// 	if($user)
+// 	{	
+// 		$profiles = Profile::where('user_id',$id)->where('id',$subid)->get();
+// 		$documents = Documents::get();
+// 		return view('docViewFiles',['profiles'=>$profiles,'documents'=>$documents]);
+// 	}
+// 	else
+// 	{
+// 		return view('docsPageExpired');
+// 	}
+// });
+
+Route::get('/docview/{id}/{subid}/{sharecode}/dashboard', function ($id,$subid,$sharecode) {
 	$user = User::where('id',$id)->where('sharecode',$sharecode)->first();
 
 	if($user)
 	{	
 		$profiles = Profile::where('user_id',$id)->where('id',$subid)->get();
 		$documents = Documents::get();
-		return view('docViewFiles',['profiles'=>$profiles,'documents'=>$documents]);
+		return view('doctorViewMobile',['profiles'=>$profiles,'documents'=>$documents]);
+	}
+	else
+	{
+		return view('docsPageExpired');
+	}
+});
+
+Route::get('/docview/{id}/{subid}/{sharecode}/prescriptions', function ($id,$subid,$sharecode) {
+	$user = User::where('id',$id)->where('sharecode',$sharecode)->first();
+
+	if($user)
+	{	
+		$profiles = Profile::where('user_id',$id)->where('id',$subid)->get();
+		$documents = Documents::get();
+		return view('doctorViewPrescription',['profiles'=>$profiles,'documents'=>$documents]);
+	}
+	else
+	{
+		return view('docsPageExpired');
+	}
+});
+
+Route::get('/docview/{id}/{subid}/{sharecode}/reports', function ($id,$subid,$sharecode) {
+	$user = User::where('id',$id)->where('sharecode',$sharecode)->first();
+
+	if($user)
+	{	
+		$profiles = Profile::where('user_id',$id)->where('id',$subid)->get();
+		$documents = Documents::get();
+		return view('doctorViewReports',['profiles'=>$profiles,'documents'=>$documents]);
 	}
 	else
 	{
@@ -47,7 +92,7 @@ Route::get('/docview/{id}/{subid}/{sharecode}/preshistory',function($id,$subid,$
 	{	
 		$profiles = Profile::where('user_id',$id)->where('id',$subid)->get();
 		$documents = Documents::get();
-		return view('prescriptionHistory');
+		return view('doctorViewHistory');
 	}
 	else
 	{
