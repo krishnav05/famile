@@ -170,11 +170,11 @@
     @foreach($docs as $doc)
     @if($loop->first)
     <div class="slider-item s2 active text-center" style="width: 120px;">
-        {{$doc['consultation_date']->format('d/m/Y')}}
+        {!! htmlspecialchars_decode(date('j<\s\up>S</\s\up> F Y', strtotime($doc['consultation_date']))) !!}
   </div>
   @else
   <div class="slider-item s2 text-center" style="width: 120px;">
-      {{$doc['consultation_date']->format('d/m/Y')}}
+      <!-- {{$doc['consultation_date']->format('d/m/Y')}} -->
   </div>
   @endif
   @endforeach
