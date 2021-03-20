@@ -20,7 +20,11 @@
     <div class="col">
       <img id="image" src="/prescriptions/{{$profileid}}/{{$docname}}" style="width: 100%;">
       <center>
-        <button style="border-radius: 4px;background-color: #000000;border: none;color: white;  padding: 10px 20px;margin-top: 5px;">Convert to Text</button>
+        <label class="container">Report?
+          <input id="reportCheck" type="checkbox" checked="checked">
+          <span class="checkmark"></span>
+        </label>
+        <button id="convertButton" style="border-radius: 4px;background-color: #000000;border: none;color: white;  padding: 10px 20px;margin-top: 5px;display: none;">Convert to Text</button>
       </center>
     </div>
     <div class="col" style="display: block;height: 75vh;overflow-y: scroll;">
@@ -263,6 +267,15 @@ Tesseract.recognize(
       zoomType: 'inner',
       cursor: 'crosshair'
     });
+
+    $('#reportCheck').click(function () {
+      if ($(this).attr('checked')) {
+          $('#convertButton').css('display','block');
+      } else {
+          $('#convertButton').css('display','none');
+      }
+    });
+
     // add row
     $("#addRow").click(function() {
       var html = '';
