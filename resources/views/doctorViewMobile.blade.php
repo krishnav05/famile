@@ -169,7 +169,7 @@
 <div class="slider2">
     @foreach($docs as $doc)
     @if($loop->first)
-    <div class="slider-item s2 active text-center">
+    <div class="slider-item s2 active text-center" style="width: 150px;">
         <div class="card">
             <div class="card-body">
                 {!! htmlspecialchars_decode(date('j<\s\up>S</\s\up> F Y', strtotime($doc['consultation_date']))) !!}
@@ -178,7 +178,7 @@
         
   </div>
   @else
-  <div class="slider-item s2 text-center">
+  <div class="slider-item s2 text-center" style="width: 150px;">
      <div class="card">
             <div class="card-body">
                 {!! htmlspecialchars_decode(date('j<\s\up>S</\s\up> F Y', strtotime($doc['consultation_date']))) !!}
