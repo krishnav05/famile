@@ -10,6 +10,7 @@ use App\Documents;
 use App\GroupDocument;
 use App\ConvertedPrescription;
 use App\ConvertedPrescriptionMed;
+use App\ReportsData;
 
 class ProfileController extends Controller
 {
@@ -172,6 +173,26 @@ class ProfileController extends Controller
         curl_setopt($ch, CURLOPT_POSTFIELDS, $dataString);
                
         $response = curl_exec($ch);
+
+        return redirect()->back();
+    }
+
+    public function dumpData(Request $request)
+    {   
+        $check = ReportsData::where('docid',$request->doc_id)->first();
+
+        if($check)
+        {
+            ReportsData::where('docid',$request->doc_id)->update(['data'=>$request->datadump]);
+        }
+        else
+        {
+            $new = new ReportsData;
+            $new->docid = $request->doc_id;
+            $new->data = $request->datadump;
+            $new->save();
+        }
+
 
         return redirect()->back();
     }

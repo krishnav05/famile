@@ -20,12 +20,19 @@
     <div class="col">
       <img id="image" src="/prescriptions/{{$profileid}}/{{$docname}}" style="width: 100%;">
       <center>
+        <div id="showconvertCheck" style="display: none;">
         <label class="container">Report?
           <input id="reportCheck" type="checkbox">
           <span class="checkmark"></span>
         </label>
-        <button id="convertButton" style="border-radius: 4px;background-color: #000000;border: none;color: white;  padding: 10px 20px;margin-top: 5px;display: none;">Convert to Text</button>
+        </div>
+        <form method="post" action="/admin/dumpdata">
+        @csrf
+        <input type="hidden" name="doc_id" value="{{$id}}">
+        <input type="hidden" name="datadump" value="">
+        <button id="convertButton" type="submit" style="border-radius: 4px;background-color: #000000;border: none;color: white;  padding: 10px 20px;margin-top: 5px;display: none;">Convert to Text</button>
       </center>
+    </form>
     </div>
     <div class="col" style="display: block;height: 75vh;overflow-y: scroll;">
       <form method="post" action="/admin/updatePrescription">
@@ -262,6 +269,8 @@ Tesseract.recognize(
   { logger: m => console.log(m) }
 ).then(({ data: { text } }) => {
   console.log(text);
+  $('#showconvertCheck').css('display','block');
+  $('input[name="datadump"]').val(text);
 });
     $("#image").ezPlus({
       zoomType: 'inner',

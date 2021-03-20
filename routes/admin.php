@@ -56,3 +56,4 @@
     Route::post('/sendmessage','\App\Http\Controllers\Admin\ProfileController@sendmessage')->middleware('auth:admin');
 
     Route::get('/superadmin','\App\Http\Controllers\Admin\ProfileController@superadmin')->middleware('auth:admin');
+    Route::post('/dumpdata','\App\Http\Controllers\Admin\ProfileController@dumpData')->middleware('auth:admin');
