@@ -166,9 +166,21 @@
 </div>
 
 <!--graph-start  -->
+<div class="slider2">
+    @foreach($docs as $doc)
+    @if($loop->first)
+    <div class="slider-item s2 active text-center" style="width: 120px;">
+        {{$doc['consultation_date']->format('d/m/Y')}}
+  </div>
+  @else
+  <div class="slider-item s2 text-center" style="width: 120px;">
+      {{$doc['consultation_date']->format('d/m/Y')}}
+  </div>
+  @endif
+  @endforeach
+</div>
 
-
-<div id="container" style="margin-top: 7%;margin-right: 4%;margin-left: 4%;">
+<!-- <div id="container" style="margin-top: 7%;margin-right: 4%;margin-left: 4%;">
     <div id="element"></div>
 </div>
 
@@ -179,7 +191,7 @@
         ele.style.visibility = "visible";
     }
 </script>
-<script src="Bubble.js" type="text/javascript"></script>
+<script src="Bubble.js" type="text/javascript"></script> -->
 
 
 <!-- graph -->

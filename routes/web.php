@@ -49,7 +49,9 @@ Route::get('/docview/{id}/{subid}/{sharecode}/dashboard', function ($id,$subid,$
 	{	
 		$profiles = Profile::where('user_id',$id)->where('id',$subid)->get();
 		$documents = Documents::get();
-		return view('doctorViewMobile',['profiles'=>$profiles,'documents'=>$documents]);
+		$docs = ConvertedPrescription::where('profile_id',$subid)->get();
+		$meds = ConvertedPrescriptionMed::all();
+		return view('doctorViewMobile',['profiles'=>$profiles,'documents'=>$documents,'docs'=>$docs,'meds'=>$meds]);
 	}
 	else
 	{
