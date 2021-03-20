@@ -21,7 +21,7 @@
       <img id="image" src="/prescriptions/{{$profileid}}/{{$docname}}" style="width: 100%;">
       <center>
         <label class="container">Report?
-          <input id="reportCheck" type="checkbox">
+          <input id="reportCheck" type="checkbox" checked="">
           <span class="checkmark"></span>
         </label>
         <button id="convertButton" style="border-radius: 4px;background-color: #000000;border: none;color: white;  padding: 10px 20px;margin-top: 5px;display: none;">Convert to Text</button>
@@ -269,7 +269,7 @@ Tesseract.recognize(
     });
 
     $('#reportCheck').click(function () {
-      if ($(this).attr('checked')) {
+      if ($(this).is(":checked")) {
           $('#convertButton').css('display','block');
       } else {
           $('#convertButton').css('display','none');
