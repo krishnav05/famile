@@ -174,7 +174,6 @@
   </div>
   @else
   <div class="slider-item s2 text-center" style="width: 120px;">
-      <!-- {{$doc['consultation_date']->format('d/m/Y')}} -->
   </div>
   @endif
   @endforeach
