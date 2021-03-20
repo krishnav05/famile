@@ -21,7 +21,7 @@
       <img id="image" src="/prescriptions/{{$profileid}}/{{$docname}}" style="width: 100%;">
       <center>
         <label class="container">Report?
-          <input id="reportCheck" type="checkbox" checked="checked">
+          <input id="reportCheck" type="checkbox">
           <span class="checkmark"></span>
         </label>
         <button id="convertButton" style="border-radius: 4px;background-color: #000000;border: none;color: white;  padding: 10px 20px;margin-top: 5px;display: none;">Convert to Text</button>
