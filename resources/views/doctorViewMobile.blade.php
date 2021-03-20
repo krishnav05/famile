@@ -174,6 +174,7 @@
   </div>
   @else
   <div class="slider-item s2 text-center" style="width: 120px;">
+     {!! htmlspecialchars_decode(date('j<\s\up>S</\s\up> F Y', strtotime($doc['consultation_date']))) !!}
   </div>
   @endif
   @endforeach
