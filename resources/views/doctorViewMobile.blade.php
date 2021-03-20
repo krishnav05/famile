@@ -167,10 +167,11 @@
 
 <!--graph-start  -->
 <div class="slider2">
+    <div class="card-deck">
     @foreach($docs as $doc)
     @if($loop->first)
     <div class="slider-item s2 active text-center" style="width: 120px;">
-        <div class="card">
+        <div class="card" style="width: 200px;">
             <div class="card-body">
                 {!! htmlspecialchars_decode(date('j<\s\up>S</\s\up> F Y', strtotime($doc['consultation_date']))) !!}
             </div>
@@ -187,6 +188,7 @@
   </div>
   @endif
   @endforeach
+  </div>
 </div>
 
 <!-- <div id="container" style="margin-top: 7%;margin-right: 4%;margin-left: 4%;">
