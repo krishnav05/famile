@@ -20,19 +20,14 @@
     <div class="col">
       <img id="image" src="/prescriptions/{{$profileid}}/{{$docname}}" style="width: 100%;">
       <center>
-        <div id="showconvertCheck" style="display: none;">
-        <label class="container">Report?
-          <input id="reportCheck" type="checkbox">
-          <span class="checkmark"></span>
-        </label>
-        </div>
         <form method="post" action="/admin/dumpdata">
         @csrf
         <input type="hidden" name="doc_id" value="{{$id}}">
         <input type="hidden" name="datadump" value="">
-        <button id="convertButton" type="submit" style="border-radius: 4px;background-color: #000000;border: none;color: white;  padding: 10px 20px;margin-top: 5px;display: none;">Convert to Text</button>
+        <button id="convertButton" type="submit" style="border-radius: 4px;background-color: #000000;border: none;color: white;  padding: 10px 20px;margin-top: 5px;">Convert to Text(wait for the conversion ~ 2 minutes)</button>
+        </form>
       </center>
-    </form>
+    
     </div>
     <div class="col" style="display: block;height: 75vh;overflow-y: scroll;">
       <form method="post" action="/admin/updatePrescription">
@@ -275,14 +270,6 @@ Tesseract.recognize(
     $("#image").ezPlus({
       zoomType: 'inner',
       cursor: 'crosshair'
-    });
-
-    $('#reportCheck').click(function () {
-      if ($(this).is(":checked")) {
-          $('#convertButton').css('display','block');
-      } else {
-          $('#convertButton').css('display','none');
-      }
     });
 
     // add row
