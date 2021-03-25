@@ -152,7 +152,7 @@
     </div>
 
     <!-- gallery -->
-    <div class="container">
+    <<!-- div class="container">
         <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
             <div class="carousel-inner">
             @foreach($profiles as $profile)
@@ -191,8 +191,57 @@
           <span class="sr-only">Next</span>
       </a>
   </div>
-</div>
+</div> -->
 <!-- e-gallery -->
+<div class="tab-content" id="myTabContent" style="display: none;">
+      @foreach($profiles as $profile)
+      @if ($loop->first)
+      <div class="tab-pane active" id="{{str_replace(' ', '', $profile['name'])}}" role="tabpanel" aria-labelledby="{{str_replace(' ', '', $profile['name'])}}-tab">
+        <div id="carouselExampleControls{{str_replace(' ', '', $profile['name'])}}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false" data-bs-wrap="false">
+          <div class="carousel-inner">
+            @foreach($documents as $document)
+            @if($document['profile_id'] == $profile['id'])
+            <div class="carousel-item" align="center">
+              <img src="/prescriptions/{{$profile['id']}}/{{$document['document']}}" class="d-block" style="max-height: 90vh;">
+            </div>
+            @endif
+            @endforeach
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls{{str_replace(' ', '', $profile['name'])}}" role="button" data-bs-slide="prev">
+            <i class="fas fa-arrow-left fa-2x" style="color: #FF338A !important;"></i>
+            <span class="visually-hidden">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls{{str_replace(' ', '', $profile['name'])}}" role="button" data-bs-slide="next">
+            <i class="fas fa-arrow-right fa-2x" style="color: #FF338A !important;"></i>
+            <span class="visually-hidden">Next</span>
+          </a>
+        </div>
+      </div>
+      @else
+      <div class="tab-pane" id="{{str_replace(' ', '', $profile['name'])}}" role="tabpanel" aria-labelledby="{{str_replace(' ', '', $profile['name'])}}-tab">
+        <div id="carouselExampleControls{{str_replace(' ', '', $profile['name'])}}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="false" data-bs-wrap="false">
+          <div class="carousel-inner">
+            @foreach($documents as $document)
+            @if($document['profile_id'] == $profile['id'])
+            <div class="carousel-item" align="center">
+              <img src="/prescriptions/{{$profile['id']}}/{{$document['document']}}" class="d-block" style="max-height: 90vh;">
+            </div>
+            @endif
+            @endforeach
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleControls{{str_replace(' ', '', $profile['name'])}}" role="button" data-bs-slide="prev">
+            <i class="fas fa-arrow-left fa-2x" style="color: #FF338A !important;"></i>
+            <span class="visually-hidden">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleControls{{str_replace(' ', '', $profile['name'])}}" role="button" data-bs-slide="next">
+            <i class="fas fa-arrow-right fa-2x" style="color: #FF338A !important;"></i>
+            <span class="visually-hidden">Next</span>
+          </a>
+        </div>
+      </div>
+      @endif
+      @endforeach
+    </div>
 
 
 
