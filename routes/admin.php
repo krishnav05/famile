@@ -54,6 +54,7 @@
     Route::get('/docview/{id}','\App\Http\Controllers\Admin\ProfileController@getDocument')->middleware('auth:admin');
     Route::post('/updatePrescription','\App\Http\Controllers\Admin\ProfileController@update')->middleware('auth:admin');
     Route::post('/sendmessage','\App\Http\Controllers\Admin\ProfileController@sendmessage')->middleware('auth:admin');
-
+    Route::post('/alertdashboardprepared','\App\Http\Controllers\Admin\ProfileController@alertdashboardprepared')->middleware('auth:admin');
+    Route::get('/deleteuser/{id}','\App\Http\Controllers\Admin\ProfileController@deleteuser')->middleware('auth:admin');
     Route::get('/superadmin','\App\Http\Controllers\Admin\ProfileController@superadmin')->middleware('auth:admin');
     Route::post('/dumpdata','\App\Http\Controllers\Admin\ProfileController@dumpData')->middleware('auth:admin');
